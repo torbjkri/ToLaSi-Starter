@@ -24,6 +24,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
+        SetHeading();
         Vector2 position = body.position;
         Vector2 player_postion = player.position;
         Vector2 direction = player_postion - position;
@@ -32,7 +33,21 @@ public class EnemyBehaviour : MonoBehaviour
             direction.Normalize();
         }
 
+
         position += speed * direction * Time.deltaTime;
         body.MovePosition(position);
+    }
+
+    void SetHeading()
+    {
+        Vector2 position = body.position;
+        Vector2 player_postion = player.position;
+        Vector2 direction = player_postion - position;
+
+        float angle = Vector2.Angle(lookDirection, direction);
+        float rotation = body.rotation;
+
+        body.MoveRotation(rotation - angle);
+        lookDirection = direction;
     }
 }
