@@ -9,7 +9,6 @@ public class EnemyBehaviour : MonoBehaviour
     Rigidbody2D body;
     Collider2D objectCollider;
 
-    Vector2 lookDirection = new Vector2(1, 0);
     Rigidbody2D player;
     Collider2D playerCollider;
     void Start()
@@ -33,16 +32,17 @@ public class EnemyBehaviour : MonoBehaviour
     {
         CheckCollisionWithPlayer();
         SetHeading();
+        UpdatePosition();
+    }
+
+    void UpdatePosition()
+    {
         Vector2 position = body.position;
         Vector2 player_postion = player.position;
-        Vector2 direction = player_postion - position;
-        if (direction.magnitude > 1.0f)
-        {
-            direction.Normalize();
-        }
 
+        float delta = speed * Time.deltaTime;
+        position = Vector2.MoveTowards(position, player_postion, delta);
 
-        position += speed * direction * Time.deltaTime;
         body.MovePosition(position);
     }
 
@@ -52,11 +52,7 @@ public class EnemyBehaviour : MonoBehaviour
         Vector2 player_postion = player.position;
         Vector2 direction = player_postion - position;
 
-        float angle = Vector2.Angle(lookDirection, direction);
-        float rotation = body.rotation;
-
-        body.MoveRotation(rotation - angle);
-        lookDirection = direction;
+        body.transform.right = direction;
     }
 
     void CheckCollisionWithPlayer()
