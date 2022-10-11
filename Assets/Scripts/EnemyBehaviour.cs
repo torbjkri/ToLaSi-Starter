@@ -14,11 +14,11 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        objectCollider = GetComponent<BoxCollider2D>();
+        objectCollider = GetComponent<CircleCollider2D>();
 
         GameObject playerObject = GameObject.Find("Player");
         player =playerObject.GetComponent<Rigidbody2D>();
-        playerCollider = playerObject.GetComponent<BoxCollider2D>();
+        playerCollider = playerObject.GetComponent<CircleCollider2D>();
 
     }
 
@@ -30,9 +30,11 @@ public class EnemyBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        CheckCollisionWithPlayer();
         SetHeading();
-        UpdatePosition();
+        if (!IsCollidingWithPlayer())
+        {
+            UpdatePosition();
+        }
     }
 
     void UpdatePosition()
@@ -55,11 +57,8 @@ public class EnemyBehaviour : MonoBehaviour
         body.transform.right = direction;
     }
 
-    void CheckCollisionWithPlayer()
+    bool IsCollidingWithPlayer()
     {
-        if (objectCollider.bounds.Intersects(playerCollider.bounds))
-        {
-            Debug.Log("Touching");
-        }
+        return objectCollider.IsTouching(playerCollider);
     }
 }
