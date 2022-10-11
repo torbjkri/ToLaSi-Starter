@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static spawners[];
+    // public static spawners[];
     void Start()
     {
         

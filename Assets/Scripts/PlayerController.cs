@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
         {
             lookDirection.Set(move.x, move.y);
-            lookDirection.Normalize();
+            lookDirection.Normalize();            
         }
 
         if (Input.GetKeyDown(KeyCode.C))
