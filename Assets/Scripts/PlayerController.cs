@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -28,35 +27,14 @@ public class PlayerController : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-
-
-        //if (Input.GetKeyDown(KeyCode.C))
-        //{
-        //    Launch();
-        //}
-
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
     }
-
-    //void Launch()
-    //{
-    //    Vector2 lookDir = mousePos - rb.position;
-
-    //    GameObject projectileObject = Instantiate(projectilePrefab, rb.position  * 0.5f, Quaternion.identity);
-
-    //    Projectile projectile = projectileObject.GetComponent<Projectile>();
-    //    projectile.Launch(rb.position, 300);
-
-    //    //animator.SetTrigger("Launch");
-    //}
 
 }
