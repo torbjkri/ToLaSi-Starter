@@ -31,10 +31,10 @@ public class PlayerController : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Launch();
-        }
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    Launch();
+        //}
 
     }
 
@@ -47,16 +47,16 @@ public class PlayerController : MonoBehaviour
         rb.rotation = angle;
     }
 
-    void Launch()
-    {
-        Vector2 lookDir = mousePos - rb.position;
+    //void Launch()
+    //{
+    //    Vector2 lookDir = mousePos - rb.position;
 
-        GameObject projectileObject = Instantiate(projectilePrefab, rb.position  * 0.5f, Quaternion.identity);
+    //    GameObject projectileObject = Instantiate(projectilePrefab, rb.position  * 0.5f, Quaternion.identity);
 
-        Projectile projectile = projectileObject.GetComponent<Projectile>();
-        projectile.Launch(rb.position, 300);
+    //    Projectile projectile = projectileObject.GetComponent<Projectile>();
+    //    projectile.Launch(rb.position, 300);
 
-        //animator.SetTrigger("Launch");
-    }
+    //    //animator.SetTrigger("Launch");
+    //}
 
 }
