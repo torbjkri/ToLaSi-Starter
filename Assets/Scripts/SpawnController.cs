@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpawnController : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
-    public Transform position;
     public int spawnInterval;
+    public int spawnerHealth = 10;
     private static System.DateTime prevSpawnTime = System.DateTime.Now;
     // Start is called before the first frame update
     void Start()
@@ -24,9 +24,13 @@ public class SpawnController : MonoBehaviour
                  this.transform.position, 
                  Quaternion.identity);
             }
-            
+            spawnerHealth--;
             prevSpawnTime = System.DateTime.Now;
             
+        }
+
+        if(spawnerHealth < 1){
+            Object.Destroy(this.gameObject);
         }
     }
 }

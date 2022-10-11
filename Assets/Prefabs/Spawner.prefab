@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1294372245533711796}
   - component: {fileID: 7611529324514017903}
   - component: {fileID: -7184940988497228002}
+  - component: {fileID: 798173034}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -93,11 +94,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5833497432551841109}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -106,3 +107,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &798173034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833497432551841109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93785bd24df7a724295d4259c0dc7db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 711646775376396354, guid: 38ea9de8f34abcb4ebd0c35e9f12d67b, type: 3}
+  position: {fileID: 0}
+  spawnInterval: 5
+  spawnerHealth: 10
