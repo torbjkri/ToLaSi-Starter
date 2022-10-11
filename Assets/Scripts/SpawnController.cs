@@ -7,7 +7,7 @@ public class SpawnController : MonoBehaviour
     public GameObject[] enemyPrefabs;
     public int spawnInterval;
     public int spawnerHealth = 10;
-    private static System.DateTime prevSpawnTime = System.DateTime.Now;
+    private System.DateTime prevSpawnTime = System.DateTime.Now;
     // Start is called before the first frame update
     void Start()
     {
