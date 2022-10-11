@@ -30,9 +30,11 @@ public class EnemyBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        CheckCollisionWithPlayer();
         SetHeading();
-        UpdatePosition();
+        if (!IsCollidingWithPlayer())
+        {
+            UpdatePosition();
+        }
     }
 
     void UpdatePosition()
@@ -55,11 +57,8 @@ public class EnemyBehaviour : MonoBehaviour
         body.transform.right = direction;
     }
 
-    void CheckCollisionWithPlayer()
+    bool IsCollidingWithPlayer()
     {
-        if (objectCollider.bounds.Intersects(playerCollider.bounds))
-        {
-            Debug.Log("Touching");
-        }
+        return objectCollider.IsTouching(playerCollider);
     }
 }
