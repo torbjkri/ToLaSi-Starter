@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-
+    int damage = 10;
     Rigidbody2D rigidbody2d;
     Vector3 startPosition;
+
+    private void Start()
+    {
+        gameObject.layer = 7;
+        Physics2D.IgnoreLayerCollision(7, 6);
+    }
 
     void Awake()
     {
@@ -28,5 +34,15 @@ public class Projectile : MonoBehaviour
         rigidbody2d.AddForce(direction * force);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Bullet hitm something " + collision.gameObject.tag);
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Bullet hit enemy");
+            collision.gameObject.SendMessage("ApplyDamage", damage);
+            Destroy(gameObject);
+        }
+    }
 
 }

@@ -9,10 +9,16 @@ public class EnemyBehaviour : MonoBehaviour
     Rigidbody2D body;
     Collider2D objectCollider;
 
+
     Rigidbody2D player;
     Collider2D playerCollider;
+
+    public int health = 10;
+
     void Start()
     {
+        gameObject.tag = "Enemy";
+        gameObject.layer = 8;
         body = GetComponent<Rigidbody2D>();
         objectCollider = GetComponent<CircleCollider2D>();
 
@@ -22,11 +28,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void FixedUpdate()
     {
@@ -60,5 +61,13 @@ public class EnemyBehaviour : MonoBehaviour
     bool IsCollidingWithPlayer()
     {
         return objectCollider.IsTouching(playerCollider);
+    }
+
+    void ApplyDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0) {
+            Destroy(gameObject);
+        }
     }
 }
