@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Bullet hitm something " + collision.gameObject.tag);
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Spawner")
         {
             Debug.Log("Bullet hit enemy");
             collision.gameObject.SendMessage("ApplyDamage", damage);

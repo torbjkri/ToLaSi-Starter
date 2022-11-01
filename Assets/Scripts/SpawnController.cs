@@ -25,13 +25,16 @@ public class SpawnController : MonoBehaviour
                  this.transform.position, 
                  Quaternion.identity);
             }
-            spawnerHealth--;
             prevSpawnTime = System.DateTime.Now;
             
         }
+    }
 
-        if(spawnerHealth < 1){
-            Object.Destroy(this.gameObject);
+    void ApplyDamage(int damage)
+    {
+        spawnerHealth -= damage;
+        if (spawnerHealth <= 0) {
+            Destroy(this.gameObject);
         }
     }
 }

@@ -11,6 +11,8 @@ public class LevelController : MonoBehaviour
 
     private List<GameObject> spawnObjects = new List<GameObject>();
 
+    private string gameState = "playing";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +29,9 @@ public class LevelController : MonoBehaviour
     {
         // Debug.Log(spawners.);
         //Check lose/win conditions
-        if(GameObject.FindGameObjectsWithTag("Spawner").Length <= 0){
+        if(GameObject.FindGameObjectsWithTag("Spawner").Length <= 0 && gameState != "won"){
             Debug.Log("Victory");
+            gameState = "won";
             //Victory            
         }
         
