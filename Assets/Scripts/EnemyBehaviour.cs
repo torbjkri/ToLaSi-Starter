@@ -7,11 +7,10 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     public float speed = 3.0f;
     Rigidbody2D body;
-    Collider2D objectCollider;
-
 
     Rigidbody2D player;
-    Collider2D playerCollider;
+
+    bool chase = true;
 
     public int health = 10;
 
@@ -20,11 +19,9 @@ public class EnemyBehaviour : MonoBehaviour
         gameObject.tag = "Enemy";
         gameObject.layer = 8;
         body = GetComponent<Rigidbody2D>();
-        objectCollider = GetComponent<CircleCollider2D>();
 
         GameObject playerObject = GameObject.Find("Player");
-        player =playerObject.GetComponent<Rigidbody2D>();
-        playerCollider = playerObject.GetComponent<CircleCollider2D>();
+        player = playerObject.GetComponent<Rigidbody2D>();
 
     }
 
@@ -32,7 +29,7 @@ public class EnemyBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         SetHeading();
-        if (!IsCollidingWithPlayer())
+        if (chase)
         {
             UpdatePosition();
         }
@@ -58,16 +55,27 @@ public class EnemyBehaviour : MonoBehaviour
         body.transform.right = direction;
     }
 
-    bool IsCollidingWithPlayer()
-    {
-        return objectCollider.IsTouching(playerCollider);
-    }
-
     void ApplyDamage(int damage)
     {
         health -= damage;
         if (health <= 0) {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            chase = false;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            chase = true;
         }
     }
 }
