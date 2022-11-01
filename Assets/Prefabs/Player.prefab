@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3253412598381356274}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3373688775757640623, guid: 63bdffb7076d7894ea5197439ed4da04, type: 3}
   moveSpeed: 5
   cam: {fileID: 665147441228280488, guid: 5df78aeb5c7eb484b9f4817dfe752578, type: 3}
+  health: 100
 --- !u!114 &6071397460768064896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbc7e4e0c11bb24a99ba3f5dd793d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 7324190313940290242}
   bulletPrefab: {fileID: 3373688775757640623, guid: 63bdffb7076d7894ea5197439ed4da04, type: 3}
   bulletForce: 20
 --- !u!50 &4855102299746052047

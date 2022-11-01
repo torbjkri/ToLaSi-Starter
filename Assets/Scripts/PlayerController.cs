@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     //public GameObject projectilePrefab;
     Vector2 movement;
     Vector2 mousePos;
+
+    public int health = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,13 @@ public class PlayerController : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
+    }
+    void ApplyDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0) {
+            Destroy(gameObject);
+        }
     }
 
 }

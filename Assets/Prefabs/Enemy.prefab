@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6914814113386490262}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   health: 10
+  damage: 10
 --- !u!58 &-6914814113386490262
 CircleCollider2D:
   m_ObjectHideFlags: 0

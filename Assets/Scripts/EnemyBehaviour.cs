@@ -13,6 +13,9 @@ public class EnemyBehaviour : MonoBehaviour
     bool chase = true;
 
     public int health = 10;
+    public int damage = 10;
+    float attackCooldown = 3.0f;
+    float lastAttackTimeStamp = 0.0f;
 
     void Start()
     {
@@ -22,7 +25,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         GameObject playerObject = GameObject.Find("Player");
         player = playerObject.GetComponent<Rigidbody2D>();
-
+        
     }
 
 
@@ -68,6 +71,30 @@ public class EnemyBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             chase = false;
+            float now = Time.time;
+            float timeSinceLastAttack = now - lastAttackTimeStamp;
+            if (timeSinceLastAttack > attackCooldown)
+            {
+                Debug.Log("Enemy hit player");
+                collision.gameObject.SendMessage("ApplyDamage", damage);
+                lastAttackTimeStamp = now;
+            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        
+        if (collision.gameObject.tag == "Player")
+        {
+            float now = Time.time;
+            float timeSinceLastAttack = now - lastAttackTimeStamp;
+            if (timeSinceLastAttack > attackCooldown)
+            {
+                Debug.Log("Enemy hit player");
+                collision.gameObject.SendMessage("ApplyDamage", damage);
+                lastAttackTimeStamp = now;
+            }
         }
     }
 
