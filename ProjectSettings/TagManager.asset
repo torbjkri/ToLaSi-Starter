@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Enemey2323
+  - Spawner
   layers:
   - Default
   - TransparentFX
