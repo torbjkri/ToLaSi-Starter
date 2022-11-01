@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 798173034}
   m_Layer: 0
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,3 +123,4 @@ MonoBehaviour:
   - {fileID: 711646775376396354, guid: 38ea9de8f34abcb4ebd0c35e9f12d67b, type: 3}
   spawnInterval: 5
   spawnerHealth: 10
+  spawnPosition: {x: 0, y: 0}

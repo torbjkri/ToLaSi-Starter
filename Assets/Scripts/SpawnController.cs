@@ -6,21 +6,22 @@ public class SpawnController : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
     public int spawnInterval;
+    public int initialDelay = 0;
     public int spawnerHealth = 10;
+    public Vector2 spawnPosition;
     private System.DateTime prevSpawnTime = System.DateTime.Now;
     // Start is called before the first frame update
     void Start()
     {
-        
+        prevSpawnTime.AddSeconds(initialDelay);
     }
 
     // Update is called once per frame
     void Update()
     {
         if(System.DateTime.Now > prevSpawnTime.AddSeconds(spawnInterval)){
-            Debug.Log("Spawn");
             foreach(GameObject enemy in enemyPrefabs){
-                GameObject boulderObject = Instantiate(enemy,
+                GameObject enemyObject = Instantiate(enemy,
                  this.transform.position, 
                  Quaternion.identity);
             }
