@@ -221,6 +221,7 @@ MonoBehaviour:
   levels:
   - {fileID: 7906695692748203609, guid: dfbe3c8cf0de9774da792b58c2e7bde0, type: 3}
   - {fileID: 7906695692748203609, guid: ec947678bb2317e4eb99de4c8380290f, type: 3}
+  - {fileID: 7906695692748203609, guid: 1af7474ceaed4224c981c1ed432cf073, type: 3}
 --- !u!4 &951490796
 Transform:
   m_ObjectHideFlags: 0
