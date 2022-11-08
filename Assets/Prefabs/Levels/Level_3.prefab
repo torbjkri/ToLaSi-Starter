@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1041065261824577661}
   - component: {fileID: 8385742573386514376}
   m_Layer: 0
-  m_Name: Level_1
+  m_Name: Level_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,4 +48,7 @@ MonoBehaviour:
   - {fileID: 5833497432551841109, guid: b1af903962e811a4dbc65016685d0355, type: 3}
   - {fileID: 5833497432551841109, guid: c2e3e2bb05b472a49befd30af0c78b07, type: 3}
   - {fileID: 5833497432551841109, guid: 01bda033f2d38134db97c8a0bcd6a274, type: 3}
+  - {fileID: 5833497432551841109, guid: 7006c9816e21e92458e1dc1d144a98d3, type: 3}
+  - {fileID: 5833497432551841109, guid: fac12ab269bf8114789c3261c32b1795, type: 3}
+  - {fileID: 5833497432551841109, guid: ea422cb97622aa846aa420bc93c10ae8, type: 3}
   difficulty: 1

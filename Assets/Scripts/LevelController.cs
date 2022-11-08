@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
@@ -32,7 +34,12 @@ public class LevelController : MonoBehaviour
         if(GameObject.FindGameObjectsWithTag("Spawner").Length <= 0 && gameState != "won"){
             Debug.Log("Victory");
             gameState = "won";
-            //Victory            
+            int currentLevel = PlayerPrefs.GetInt("CurrentDifficulty");
+            GameObject levelSelector = GameObject.Find("LevelSelector");
+            if(currentLevel < levelSelector.GetComponent<LevelSelector>().levels.Count -1) 
+                PlayerPrefs.SetInt("CurrentDifficulty",currentLevel +1);
+            //Victory         
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   
         }
         
 

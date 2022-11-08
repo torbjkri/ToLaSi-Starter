@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
         health -= damage;
         if (health <= 0) {
             Destroy(gameObject);
+            Debug.Log("Lost");
+            PlayerPrefs.SetInt("CurrentDifficulty",0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
         }
     }
 
