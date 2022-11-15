@@ -22,8 +22,6 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     public Camera cam;
 
-    Vector2 lookDirection = new Vector2(1, 0);
-    //public GameObject projectilePrefab;
     Vector2 mousePos;
     InputHandler input_handler = new InputHandler();
 
