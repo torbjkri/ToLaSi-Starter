@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class InputHandler
 {
     public Vector2 movement_direction;
+    public Vector2 mouse_position;
 
     public void Update()
     {
         movement_direction.x = Input.GetAxisRaw("Horizontal");
         movement_direction.y = Input.GetAxisRaw("Vertical");
+
+        mouse_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 }
 
@@ -39,7 +42,6 @@ public class PlayerController : MonoBehaviour
     public GameObject projectilePrefab;
 
     public float moveSpeed = 5f;
-    public Camera cam;
 
     Vector2 mousePos;
     InputHandler input_handler = new InputHandler();
@@ -51,19 +53,18 @@ public class PlayerController : MonoBehaviour
     {
         movement_handler = new MovementHandler(GetComponent<Rigidbody2D>());
         gameObject.layer = 6;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         input_handler.Update();
-
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void FixedUpdate()
     {
-        movement_handler.Move(input_handler.movement_direction, mousePos);
+        movement_handler.Move(input_handler.movement_direction, input_handler.mouse_position);
     }
     void ApplyDamage(int damage)
     {
