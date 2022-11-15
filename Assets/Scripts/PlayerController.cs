@@ -41,9 +41,6 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject projectilePrefab;
 
-    public float moveSpeed = 5f;
-
-    Vector2 mousePos;
     InputHandler input_handler = new InputHandler();
     MovementHandler movement_handler;
 
