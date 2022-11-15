@@ -3,6 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public class InputHandler
+{
+    public Vector2 movement_direction;
+
+    public void Update()
+    {
+        movement_direction.x = Input.GetAxisRaw("Horizontal");
+        movement_direction.y = Input.GetAxisRaw("Vertical");
+    }
+}
+
 public class PlayerController : MonoBehaviour
 {
     public GameObject projectilePrefab;
@@ -13,8 +24,8 @@ public class PlayerController : MonoBehaviour
 
     Vector2 lookDirection = new Vector2(1, 0);
     //public GameObject projectilePrefab;
-    Vector2 movement;
     Vector2 mousePos;
+    InputHandler input_handler = new InputHandler();
 
     public int health = 100;
     // Start is called before the first frame update
@@ -27,15 +38,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        input_handler.Update();
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + input_handler.movement_direction * moveSpeed * Time.fixedDeltaTime);
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
