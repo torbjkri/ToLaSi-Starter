@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6071397460768064896}
   - component: {fileID: 4855102299746052047}
   - component: {fileID: -3253412598381356274}
+  - component: {fileID: -3731079697853901980}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -102,8 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3373688775757640623, guid: 63bdffb7076d7894ea5197439ed4da04, type: 3}
-  moveSpeed: 5
-  cam: {fileID: 665147441228280488, guid: 5df78aeb5c7eb484b9f4817dfe752578, type: 3}
   health: 100
 --- !u!114 &6071397460768064896
 MonoBehaviour:
@@ -156,6 +155,36 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-3731079697853901980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711646775376396354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 7b4f61ab5ffb33945a6b12b62f13d47b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: keyboard & mouse
+  m_DefaultActionMap: gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &812221459050987091
 GameObject:
   m_ObjectHideFlags: 0

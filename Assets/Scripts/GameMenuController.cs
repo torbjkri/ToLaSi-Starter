@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameMenuController : MonoBehaviour
 {
@@ -14,29 +15,19 @@ public class GameMenuController : MonoBehaviour
     void Start()
     {
         
-        
     }
 
-void Awake(){
+    void Awake()
+    {
         Resume();
-}
+    }
     // Update is called once per frame
     void Update()
     {
-         if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
     }
 
-    public void LoadMainMenu(){
+    public void LoadMainMenu()
+    {
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -52,5 +43,17 @@ void Awake(){
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+    }
+    private void OnPause()
+    {
+        Debug.Log("Called pause!");
+         if (gameIsPaused)
+         {
+             Resume();
+         }
+         else
+         {
+             Pause();
+         }
     }
 }

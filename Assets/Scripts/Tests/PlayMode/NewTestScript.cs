@@ -4,6 +4,11 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
+//class MyTests : InputTestFixture
+//{
+//
+//}
+
 public class NewTestScript
 {
     // A Test behaves as an ordinary method
