@@ -614,6 +614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 812221459050987091, guid: d9ea8d357f414b34993a92dea8a03572, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4789356486950631410, guid: d9ea8d357f414b34993a92dea8a03572, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -666,6 +670,10 @@ PrefabInstance:
       propertyPath: playerInput
       value: 
       objectReference: {fileID: 620390949}
+    - target: {fileID: 7324190313940290242, guid: d9ea8d357f414b34993a92dea8a03572, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6071397460768064896, guid: d9ea8d357f414b34993a92dea8a03572, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d9ea8d357f414b34993a92dea8a03572, type: 3}
