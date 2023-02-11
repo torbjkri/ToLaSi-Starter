@@ -9,24 +9,24 @@ public class SpawnController : MonoBehaviour
     public int initialDelay = 0;
     public int spawnerHealth = 10;
     public Vector2 spawnPosition;
-    private System.DateTime prevSpawnTime = System.DateTime.Now;
+    private float prevSpawnTime = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
-        prevSpawnTime.AddSeconds(initialDelay);
+        prevSpawnTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(System.DateTime.Now > prevSpawnTime.AddSeconds(spawnInterval)){
+        float timeSinceSpawn = Time.time - prevSpawnTime;
+        if(timeSinceSpawn > spawnInterval){
             foreach(GameObject enemy in enemyPrefabs){
                 GameObject enemyObject = Instantiate(enemy,
                  this.transform.position, 
                  Quaternion.identity);
             }
-            prevSpawnTime = System.DateTime.Now;
-            
+            prevSpawnTime = Time.time;
         }
     }
 
