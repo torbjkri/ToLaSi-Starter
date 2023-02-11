@@ -16,7 +16,6 @@ public class InputHandler
 
     public void Update()
     {
-        Vector2 move = new Vector2(0.0f, 0.0f);
         mouse_position = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
     }
 }
@@ -83,7 +82,6 @@ public class PlayerController : MonoBehaviour
 
     void OnFire()
     {
-        Debug.Log("FIRE IND A HOLE");
         GameObject bullet = Instantiate(projectilePrefab, transform.position + 0.5f * transform.up, transform.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         // 20 is magic force number
