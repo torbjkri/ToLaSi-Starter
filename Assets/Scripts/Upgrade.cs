@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Upgrade
 {
-        public int id;
+    public int id;
     public string name;
     //passive stat bonus, projectile spawn modifier, fire rate, projectile behaviour, 
     public string type;

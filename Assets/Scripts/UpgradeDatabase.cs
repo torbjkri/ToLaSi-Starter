@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class UpgradeDatabase : MonoBehaviour
 {
-    public Upgrade[] upgrades;
+    public Upgrade[] upgrades = new Upgrade[]{
+        new Upgrade(0, "Damage +1", "passive", null, null),
+        new Upgrade(1, "Damage +2", "passive", new int[] {0}, null)
+    };
 
     public Upgrade upgrade1;
     public Upgrade upgrade2;
