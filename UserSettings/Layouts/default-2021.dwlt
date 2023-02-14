@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 71
+  controlID: 57
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 579
     height: 937
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -95,8 +95,8 @@ MonoBehaviour:
     y: 0
     width: 324
     height: 573
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -121,14 +121,14 @@ MonoBehaviour:
     y: 573
     width: 1341
     height: 364
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 14}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 14}
   - {fileID: 19}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 72
+  controlID: 62
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 73
+  controlID: 63
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -307,7 +307,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_Spl:
-    ID: 136
+    ID: 2149
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -339,7 +339,7 @@ MonoBehaviour:
       name: ToLaSi Starter
       fullName: ToLaSi Starter
       resultStatus: 4
-      duration: 0.1877524
+      duration: 0.1934046
       messages: One or more child tests were ignored
       output: 
       stacktrace: 
@@ -355,7 +355,7 @@ MonoBehaviour:
       name: Tests.dll
       fullName: C:/Users/torbj/Unity/ToLaSi Starter/Library/ScriptAssemblies/Tests.dll
       resultStatus: 1
-      duration: 0.036232
+      duration: 0.0410056
       messages: 
       output: 
       stacktrace: 
@@ -371,7 +371,7 @@ MonoBehaviour:
       name: HealthBarTests
       fullName: HealthBarTests
       resultStatus: 1
-      duration: 0.0293277
+      duration: 0.0364395
       messages: 
       output: 
       stacktrace: 
@@ -387,7 +387,7 @@ MonoBehaviour:
       name: _0_setting_max_health_sets_slider_max_value
       fullName: HealthBarTests._0_setting_max_health_sets_slider_max_value
       resultStatus: 1
-      duration: 0.0153348
+      duration: 0.021423
       messages: 
       output: 
       stacktrace: 
@@ -404,7 +404,7 @@ MonoBehaviour:
       name: _1_setting_health_value_sets_slider_value
       fullName: HealthBarTests._1_setting_health_value_sets_slider_value
       resultStatus: 1
-      duration: 0.0007267
+      duration: 0.0006807
       messages: 
       output: 
       stacktrace: 
@@ -422,7 +422,7 @@ MonoBehaviour:
       name: Unity.InputSystem.IntegrationTests.dll
       fullName: C:/Users/torbj/Unity/ToLaSi Starter/Library/ScriptAssemblies/Unity.InputSystem.IntegrationTests.dll
       resultStatus: 4
-      duration: 0.0212952
+      duration: 0.0239839
       messages: One or more child tests were ignored
       output: 
       stacktrace: 
@@ -438,7 +438,7 @@ MonoBehaviour:
       name: IntegrationTests
       fullName: IntegrationTests
       resultStatus: 4
-      duration: 0.019257
+      duration: 0.021354
       messages: One or more child tests were ignored
       output: 
       stacktrace: 
@@ -455,7 +455,7 @@ MonoBehaviour:
       name: Integration_CanChangeInputBackendPlayerSettingInEditor
       fullName: IntegrationTests.Integration_CanChangeInputBackendPlayerSettingInEditor
       resultStatus: 1
-      duration: 0.0121703
+      duration: 0.0133823
       messages: 
       output: 
       stacktrace: 
@@ -472,7 +472,7 @@ MonoBehaviour:
       name: Integration_CanSendAndReceiveEvents
       fullName: IntegrationTests.Integration_CanSendAndReceiveEvents
       resultStatus: 1
-      duration: 0.0040298
+      duration: 0.0043822
       messages: 
       output: 
       stacktrace: 
@@ -484,12 +484,12 @@ MonoBehaviour:
       - Integration
       parentId: 1005
       parentUniqueId: Unity.InputSystem.IntegrationTests.dll/[Unity.InputSystem.IntegrationTests][IntegrationTests][suite]
-    - id: 1022
+    - id: 1009
       uniqueId: Unity.InputSystem.IntegrationTests.dll/IntegrationTests/[Unity.InputSystem.IntegrationTests][IntegrationTests.WindowsInput_MouseMovements_AreDetected]
       name: WindowsInput_MouseMovements_AreDetected
       fullName: IntegrationTests.WindowsInput_MouseMovements_AreDetected
-      resultStatus: 4
-      duration: 0.0005429
+      resultStatus: 0
+      duration: 0
       messages: Unstable due to 1252825
       output: 
       stacktrace: 
@@ -499,14 +499,14 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Integration
-      parentId: 1018
+      parentId: 1005
       parentUniqueId: Unity.InputSystem.IntegrationTests.dll/[Unity.InputSystem.IntegrationTests][IntegrationTests][suite]
-    - id: 1021
+    - id: 1008
       uniqueId: Unity.InputSystem.IntegrationTests.dll/IntegrationTests/[Unity.InputSystem.IntegrationTests][IntegrationTests.WindowsInput_RemoteDesktopMouseMovements_AreDetected]
       name: WindowsInput_RemoteDesktopMouseMovements_AreDetected
       fullName: IntegrationTests.WindowsInput_RemoteDesktopMouseMovements_AreDetected
-      resultStatus: 4
-      duration: 0.0000012
+      resultStatus: 0
+      duration: 0
       messages: Unstable due to 1252825
       output: 
       stacktrace: 
@@ -516,14 +516,19 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Integration
-      parentId: 1018
+      parentId: 1005
       parentUniqueId: Unity.InputSystem.IntegrationTests.dll/[Unity.InputSystem.IntegrationTests][IntegrationTests][suite]
-    m_ResultText: _0_setting_max_health_sets_slider_max_value (0.015s)
+    m_ResultText: 'ToLaSi Starter (0.193s)
+
+      ---
+
+      One or more child tests
+      were ignored'
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 69e1f33f
-      m_LastClickedID: 1072947561
+      m_SelectedIDs: 356ae89c
+      m_LastClickedID: -1662490059
       m_ExpandedIDs: 356ae89cebc29db0eb1b5cb622524b3a0664c95369291174ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -708,22 +713,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scripts/Tests/PlayMode
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scripts/Tests/PlayMode
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\torbj\Unity\ToLaSi Starter
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 175}
-    m_SelectedIDs: a2640000
-    m_LastClickedID: 25762
-    m_ExpandedIDs: 000000009464000096640000986400009a6400009c6400009e640000a0640000a2640000a4640000a6640000a8640000aa6400004465000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: f0640000
+    m_LastClickedID: 25840
+    m_ExpandedIDs: 000000009c6400009e640000a0640000a2640000a4640000a6640000a8640000aa640000ac640000ae640000b0640000b2640000b4640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -751,7 +756,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009464000096640000986400009a6400009c6400009e640000a0640000a2640000a4640000a6640000a8640000aa640000ac640000
+    m_ExpandedIDs: 000000009c6400009e640000a0640000a2640000a4640000a6640000a8640000aa640000ac640000ae640000b0640000b2640000b4640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -776,8 +781,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 1a750000
+    m_LastClickedInstanceID: 29978
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000c65f000000000000
     m_RenameOverlay:
@@ -842,7 +847,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 84
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -879,9 +884,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 6ce4ffff6ee4ffff78e4ffffbae4ffff3ce6ffff52e7ffff94e7ffffe2e8ffff06eaffff48eaffff96ebffffeef1ffff2ef2ffff86f2ffffc8f2ffff96f4ffffb0f4ffffb4f4ffffb8f4ffff1ef5ffffd0f5ffff12f6ffff82f7ffffe6f7ffff28f8ffff9ef9ffff26fbffff9a810000
+      m_SelectedIDs: 1cfbffff
+      m_LastClickedID: -1252
+      m_ExpandedIDs: 1afbffff1cfbffff26fbffffce62000048630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1152,9 +1157,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 507.5, y: 265.5, z: 0}
+    m_Target: {x: 565.22015, y: 300.0605, z: -1.4393469}
     speed: 2
-    m_Value: {x: 507.5, y: 265.5, z: 0}
+    m_Value: {x: 565.27325, y: 296.98203, z: -1.1601621}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1205,9 +1210,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 572.7534
+    m_Target: 648.3287
     speed: 2
-    m_Value: 572.7534
+    m_Value: 620.4102
   m_Ortho:
     m_Target: 1
     speed: 2

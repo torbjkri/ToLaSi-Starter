@@ -833,7 +833,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 745844715}
         m_TargetAssemblyTypeName: PlayerController, Scripts
         m_MethodName: TogglePause
         m_Mode: 1
