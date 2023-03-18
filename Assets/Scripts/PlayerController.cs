@@ -4,38 +4,33 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
-public class InputHandler
-{
-    public Vector2 movement_direction;
-    public Vector2 mouse_position;
-
-    public void SetMovementDirection(Vector2 direction)
-    {
-        movement_direction = direction;
-    }
-
-    public void Update()
-    {
-        mouse_position = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-    }
-}
-
 class MovementHandler
 {
-    Rigidbody2D rigid_body;
-    float move_speed = 5.0f;
+    private Rigidbody2D rigid_body_;
+    private float move_speed = 5.0f;
+    private Camera camera_;
+
+    private Vector2 direction_;
 
     public MovementHandler(Rigidbody2D rb)
     {
-        rigid_body = rb;
+        rigid_body_ = rb;
+        camera_ = Camera.main;
+    }
+
+    public void SetMoveDirection(Vector2 direction)
+    {
+        direction_ = direction;
     }
     
-    public void Move(Vector2 movement_direction, Vector2 mouse_position)
+    public void Move()
     {
-        rigid_body.MovePosition(rigid_body.position + movement_direction * move_speed * Time.fixedDeltaTime);
-        Vector2 lookDir = mouse_position - rigid_body.position;
+
+        Vector2 mouse_position = camera_.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        rigid_body_.MovePosition(rigid_body_.position + direction_ * move_speed * Time.fixedDeltaTime);
+        Vector2 lookDir = mouse_position - rigid_body_.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rigid_body.rotation = angle;
+        rigid_body_.rotation = angle;
     }
 
 }
@@ -45,7 +40,6 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] private BulletSO bulletSpawner;
 
     MovementHandler movement_handler;
-    InputHandler input_handler;
 
     public PlayerInput playerInput;
 
@@ -58,7 +52,6 @@ public class PlayerController : MonoBehaviour
     {
         movement_handler = new MovementHandler(GetComponent<Rigidbody2D>());
         gameObject.layer = 6;
-        input_handler = new InputHandler();
         weapon = transform.Find("Weapon").GetComponent<WeaponBehaviour>();
 
     }
@@ -70,8 +63,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        input_handler.Update();
-        movement_handler.Move(input_handler.movement_direction, input_handler.mouse_position);
+        movement_handler.Move();
     }
     void ApplyDamage(int damage)
     {
@@ -91,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     void OnMove(InputValue input)
     {
-        input_handler.SetMovementDirection(input.Get<Vector2>());
+        movement_handler.SetMoveDirection(input.Get<Vector2>());
     }
 
     private void OnPause()
