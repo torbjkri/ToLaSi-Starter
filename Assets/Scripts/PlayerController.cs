@@ -42,12 +42,14 @@ class MovementHandler
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject projectilePrefab;
+    //[SerializeField] private BulletSO bulletSpawner;
 
     MovementHandler movement_handler;
     InputHandler input_handler;
 
     public PlayerInput playerInput;
+
+    private WeaponBehaviour weapon;
 
     public int maxHealth = 100;
     public int health = 100;
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
         movement_handler = new MovementHandler(GetComponent<Rigidbody2D>());
         gameObject.layer = 6;
         input_handler = new InputHandler();
+        weapon = transform.Find("Weapon").GetComponent<WeaponBehaviour>();
 
     }
 
@@ -83,10 +86,7 @@ public class PlayerController : MonoBehaviour
 
     void OnFire()
     {
-        GameObject bullet = Instantiate(projectilePrefab, transform.position + 0.5f * transform.up, transform.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        // 20 is magic force number
-        rb.AddForce(transform.up * 20.0f, ForceMode2D.Impulse);
+        weapon.Attack();
     }
 
     void OnMove(InputValue input)

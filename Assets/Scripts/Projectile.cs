@@ -5,19 +5,17 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     int damage = 10;
-    Rigidbody2D rigidbody2d;
+    float velocity_force = 20.0f;
     Vector3 startPosition;
 
     private void Start()
     {
         gameObject.layer = 7;
         Physics2D.IgnoreLayerCollision(7, 6);
-    }
-
-    void Awake()
-    {
-        rigidbody2d = GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(transform.up * velocity_force, ForceMode2D.Impulse);
         startPosition = transform.position;
+
     }
 
     // Update is called once per frame
@@ -28,10 +26,6 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    public void Launch(Vector2 direction, float force)
-    {
-        rigidbody2d.AddForce(direction * force);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

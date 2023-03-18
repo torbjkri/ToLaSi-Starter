@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4855102299746052047}
   - component: {fileID: -3253412598381356274}
   - component: {fileID: -3731079697853901980}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f351999b758a45a22c4ddaacfa3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3373688775757640623, guid: 63bdffb7076d7894ea5197439ed4da04, type: 3}
+  bulletSpawner: {fileID: 0}
   playerInput: {fileID: 0}
+  maxHealth: 100
   health: 100
 --- !u!50 &4855102299746052047
 Rigidbody2D:
