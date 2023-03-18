@@ -45,8 +45,7 @@ public class PlayerController : MonoBehaviour
 
     private WeaponBehaviour weapon;
 
-    public int maxHealth = 100;
-    public int health = 100;
+    [SerializeField] private PlayerHealthSO healthSO_;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,8 +66,8 @@ public class PlayerController : MonoBehaviour
     }
     void ApplyDamage(int damage)
     {
-        health -= damage;
-        if (health <= 0) {
+        healthSO_.Health -= damage;
+        if (healthSO_.Health <= 0) {
             Destroy(gameObject);
             Debug.Log("Lost");
             PlayerPrefs.SetInt("CurrentDifficulty", 0);

@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class HealthBarBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private PlayerController player;
+    private PlayerHealthSO health_;
 
     private HealthBarController controller;
     // Start is called before the first frame update
     void Start()
     {
         controller = new HealthBarController(gameObject.GetComponent<Slider>());
-        controller.SetMaxHealth(player.maxHealth);
+        controller.SetMaxHealth(health_.MaxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
-        controller.SetValue(player.health);
+        controller.SetValue(health_.Health);
     }
 }
