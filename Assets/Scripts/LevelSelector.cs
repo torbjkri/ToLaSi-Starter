@@ -5,6 +5,8 @@ using UnityEngine;
 public class LevelSelector : MonoBehaviour
 {
     public List<GameObject> levels = new List<GameObject>();
+
+    private List<GameObject> spawned_objects_ = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {

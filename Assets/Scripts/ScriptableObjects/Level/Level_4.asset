@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef05b7f085f50140b3696b4e4c7e77e, type: 3}
+  m_Name: Level_4
+  m_EditorClassIdentifier: 
+  spawners:
+  - spawner: {fileID: 5833497432551841109, guid: a8b359a9401f3a84a9bfe53dfb90210d, type: 3}
+    position: {x: 10, y: 0}
+  - spawner: {fileID: 5833497432551841109, guid: a8b359a9401f3a84a9bfe53dfb90210d, type: 3}
+    position: {x: -10, y: 0}
+  - spawner: {fileID: 5833497432551841109, guid: a8b359a9401f3a84a9bfe53dfb90210d, type: 3}
+    position: {x: 0, y: 10}
+  - spawner: {fileID: 5833497432551841109, guid: a8b359a9401f3a84a9bfe53dfb90210d, type: 3}
+    position: {x: 0, y: -10}
+  - spawner: {fileID: 5833497432551841109, guid: a8b359a9401f3a84a9bfe53dfb90210d, type: 3}
+    position: {x: 10, y: 10}
+  - spawner: {fileID: 5833497432551841109, guid: a8b359a9401f3a84a9bfe53dfb90210d, type: 3}
+    position: {x: -10, y: 10}
+  - spawner: {fileID: 5833497432551841109, guid: a8b359a9401f3a84a9bfe53dfb90210d, type: 3}
+    position: {x: -10, y: -10}
+  - spawner: {fileID: 5833497432551841109, guid: a8b359a9401f3a84a9bfe53dfb90210d, type: 3}
+    position: {x: 10, y: -10}

@@ -5,11 +5,13 @@ using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] private ConfigsSO game_config;
 
     private bool isPaused;
     // Start is called before the first frame update
     void Start()
     {
+        LoadCurrentLevel();
         isPaused = false;
     }
      
@@ -48,7 +50,20 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-        
+        if (LevelManager.Instance.IsLevelFinished())
+        {
+            LoadNextLevel();
+        }
+    }
+
+    private void LoadNextLevel()
+    {
+        game_config.current_level = LevelManager.Instance.LoadLevel(game_config.current_level + 1);
+    }
+
+    private void LoadCurrentLevel()
+    {
+        game_config.current_level = LevelManager.Instance.LoadLevel(game_config.current_level);
     }
 
 }
