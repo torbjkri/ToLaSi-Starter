@@ -719,7 +719,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -728,6 +728,7 @@ MonoBehaviour:
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1108,7 +1109,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1117,6 +1118,7 @@ MonoBehaviour:
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1396,29 +1398,38 @@ CanvasRenderer:
   upgrades:
   - id: 0
     name: Damage +1
-    type: 
+    description: Increases damage by one
+    type: passive
     preRequisites: 
     excludedUpgrades: 
   - id: 1
     name: Damage +2
-    type: 
+    description: Increases damage by one more
+    type: passive
     preRequisites: 00000000
     excludedUpgrades: 
   - id: 2
     name: Damage +3
-    type: 
-    preRequisites: 02000000
+    description: Increases damage by one more
+    type: passive
+    preRequisites: 01000000
     excludedUpgrades: 
-  upgrade1:
-    id: 0
-    name: 
-    type: 
+  - id: 3
+    name: Bounce 1
+    description: Allows projectile to bounce one time before disappearing
+    type: projectile
     preRequisites: 
     excludedUpgrades: 
-  upgrade2:
-    id: 0
-    name: 
-    type: 
+  - id: 4
+    name: Bounce 2
+    description: Allows projectile to bounce two times before disappearing
+    type: projectile
+    preRequisites: 03000000
+    excludedUpgrades: 
+  - id: 5
+    name: Shotgun
+    description: Fires multiple bullets at once
+    type: firemode
     preRequisites: 
     excludedUpgrades: 
 --- !u!4 &967366912
@@ -1539,7 +1550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1587756493
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1573,7 +1584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeDB: {fileID: 967366910}
-  upgradeButtonPrefab: {fileID: 8212071767916594468, guid: ae055f4a60bc55f49a1241df85001924, type: 3}
+  upgradeButtonPrefab: {fileID: 2747177546842905303, guid: 870fea1e52e8b314f8e083d7e1e8c5db, type: 3}
   upgradeButtonParent: {fileID: 1587756493}
 --- !u!114 &1587756495
 MonoBehaviour:
@@ -1883,7 +1894,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1892,6 +1903,7 @@ MonoBehaviour:
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0

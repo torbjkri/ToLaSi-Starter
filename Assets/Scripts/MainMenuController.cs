@@ -20,6 +20,8 @@ public class MainMenuController : MonoBehaviour
     }
 
     public void StartNewGame(){
+        List<int> noUpgrades = new List<int>();
+        SaveSystem.SaveUpgrades(noUpgrades);
         PlayerPrefs.SetInt("CurrentDifficulty",0);
         SceneManager.LoadScene("Arms Race");
     }

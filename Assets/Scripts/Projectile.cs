@@ -5,18 +5,28 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     //todo calculate from upgrades
-    int damage = 10;
     float velocity_force = 20.0f;
+    UpgradeSaveData playerUpgrades;
+    float damage = 10;
     int bounceCount = 1;
     Rigidbody2D rigidbody2d;
     Vector3 startPosition;
 
+    
+
     private void Start()
     {
+        playerUpgrades = SaveSystem.LoadUpgrades();
         gameObject.layer = 7;
         Physics2D.IgnoreLayerCollision(7, 6);
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.AddForce(transform.up * velocity_force, ForceMode2D.Impulse);
+        damage = CalculateDamage(playerUpgrades);
+    }
+
+    void Awake()
+    {
+        rigidbody2d = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
 
     }
@@ -35,9 +45,10 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Debug.Log("Bullet hitm something " + collision.gameObject.tag);
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Spawner")
         {
-            Debug.Log("Bullet hit enemy");
+            // Debug.Log("Bullet hit enemy");
             //todo get damage from upgrades
             float damageUpgrades = 1.1f;
             float damageAfterUpgrades = damage * damageUpgrades;
@@ -60,6 +71,20 @@ public class Projectile : MonoBehaviour
             }
             
         }
+    }
+
+    private float CalculateDamage(UpgradeSaveData upgrades){
+        //get upgrades of type
+        var flatDamageIncrease = 0;
+        //Todo this logic is bad and must be improved
+        if((playerUpgrades != null && playerUpgrades.upgrades.Contains(2)))
+            flatDamageIncrease = 3;
+        else if((playerUpgrades != null && playerUpgrades.upgrades.Contains(1)))
+        flatDamageIncrease = 2;
+                else if((playerUpgrades != null && playerUpgrades.upgrades.Contains(0)))
+        flatDamageIncrease = 1;
+
+        return damage + flatDamageIncrease;
     }
 
 }

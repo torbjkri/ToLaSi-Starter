@@ -8,8 +8,15 @@ public class Shooting : MonoBehaviour
 
     public GameObject bulletPrefab;
 
+    UpgradeSaveData playerUpgrades;
+
     public float bulletForce = 20f;
     // Update is called once per frame
+
+    void Start(){
+        playerUpgrades = SaveSystem.LoadUpgrades();
+        Debug.Log(playerUpgrades);
+    }
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -24,15 +31,18 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         //Todo check what mode from upgrades
+
         var mode = 1;
+        // Debug.Log(playerUpgrades.upgrades);
+        if((playerUpgrades != null && playerUpgrades.upgrades.Contains(5))) mode = 2;
         switch (mode)
         {
             case 1:
-                Shotgun();
+                Normal();
                 break;
             case 2:
-                Normal();
-        break;
+                Shotgun();                
+                break;
         }
         
     }

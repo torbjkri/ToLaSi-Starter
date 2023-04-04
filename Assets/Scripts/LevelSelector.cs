@@ -10,6 +10,7 @@ public class LevelSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(PlayerPrefs.GetInt("CurrentDifficulty"));
         if(!PlayerPrefs.HasKey("CurrentDifficulty")) PlayerPrefs.SetInt("CurrentDifficulty",0);
         GameObject levelObject = Instantiate(levels[PlayerPrefs.GetInt("CurrentDifficulty")],
                  new Vector2(0,0), 

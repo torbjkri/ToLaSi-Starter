@@ -13,9 +13,13 @@ public static class SaveSystem {
     }
 
     public static UpgradeSaveData LoadUpgrades() {
+        Debug.Log(savePath);
         if (File.Exists(savePath)) {
             string json = File.ReadAllText(savePath);
             return JsonUtility.FromJson<UpgradeSaveData>(json);
+        }else{
+            List<int> noUpgrades = new List<int>();
+            SaveSystem.SaveUpgrades(noUpgrades);
         }
         return null;
     }
