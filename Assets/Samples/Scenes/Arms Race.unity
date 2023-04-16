@@ -217,11 +217,8 @@ RectTransform:
   m_Children:
   - {fileID: 1697464391}
   - {fileID: 1503769659}
-<<<<<<< HEAD:Assets/Samples/Scenes/Arms Race.unity
   - {fileID: 335835304}
-=======
   - {fileID: 1587756493}
->>>>>>> 0c0ec66 (Upgrade menu wip):Assets/Scenes/Arms Race.unity
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1529,10 +1526,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503769658}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD:Assets/Samples/Scenes/Arms Race.unity
 --- !u!1 &1684207404
-=======
---- !u!1 &1587756492
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1625,7 +1619,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 1587756492}
   m_CullTransparentMesh: 1
 --- !u!1 &1656621677
->>>>>>> 0c0ec66 (Upgrade menu wip):Assets/Scenes/Arms Race.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1703,9 +1696,6 @@ Transform:
   m_Father: {fileID: 9013455}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD:Assets/Samples/Scenes/Arms Race.unity
---- !u!114 &1697464392
-=======
 --- !u!1 &1708235517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,13 +1714,11 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &1708235518
->>>>>>> 0c0ec66 (Upgrade menu wip):Assets/Scenes/Arms Race.unity
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD:Assets/Samples/Scenes/Arms Race.unity
   m_GameObject: {fileID: 1697464390}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1757,7 +1745,6 @@ MonoBehaviour:
   m_CursorLockBehavior: 0
 --- !u!114 &1697464393
 MonoBehaviour:
-=======
   m_GameObject: {fileID: 1708235517}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1767,12 +1754,10 @@ MonoBehaviour:
   upgradeMenu: {fileID: 1587756492}
 --- !u!4 &1708235519
 Transform:
->>>>>>> 0c0ec66 (Upgrade menu wip):Assets/Scenes/Arms Race.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD:Assets/Samples/Scenes/Arms Race.unity
   m_GameObject: {fileID: 1697464390}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1782,7 +1767,6 @@ Transform:
   m_FirstSelected: {fileID: 1697464390}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
-=======
   m_GameObject: {fileID: 1708235517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 900.92706, y: 455.58688, z: -9.05393}
@@ -1792,7 +1776,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> 0c0ec66 (Upgrade menu wip):Assets/Scenes/Arms Race.unity
 --- !u!1 &1753219132
 GameObject:
   m_ObjectHideFlags: 0
