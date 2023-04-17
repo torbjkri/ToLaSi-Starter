@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeDatabase : MonoBehaviour
+[CreateAssetMenu(menuName = "Player/Upgrade Database", fileName = "UpgradeDatabase")]
+public class UpgradeDatabaseSO : ScriptableObject
 {
+
+    // TODO: Split weapon upgrades and weapon type upgrade
     public Upgrade[] upgrades = new Upgrade[]{
         new Upgrade(0, "Damage +1", "Increases damage by one", "passive", null, null),
         new Upgrade(1, "Damage +2", "Increases damage by one more", "passive", new int[] {0}, null),
@@ -15,15 +18,9 @@ public class UpgradeDatabase : MonoBehaviour
 
 
     };
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     private Upgrade CreateUpgrade(int id, string name,string description, string type, int[] preRequisites, int[] excludedUpgrades){
         var upgrade = new Upgrade( id,  name,description, type, preRequisites, excludedUpgrades);
         return upgrade;
     }
-    
 }

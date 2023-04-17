@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamePauseController : Singleton<GamePauseController>
+public class GameManagerScript : MonoBehaviour
 {
+    [SerializeField] private GameManagerSO game_manager_;
     // Start is called before the first frame update
     void Start()
     {
-        
+        game_manager_.StartGame();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        game_manager_.UpdateGameState();   
     }
 }

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// TODO: Can be made into SOs as well
+
 [System.Serializable]
 public class Upgrade
 {

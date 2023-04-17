@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class WeaponBehaviour : MonoBehaviour
 {
-    UpgradeSaveData playerUpgrades;
+    [SerializeField] private UpgradeStorageSO player_upgrades_;
     [SerializeField] private GameObject bullet_type_;
     // Start is called before the first frame update
     void Start()
     {
-        playerUpgrades = SaveSystem.LoadUpgrades();    
         transform.localPosition = new Vector3(0.0f, 0.6f);
     }
 
@@ -21,12 +20,11 @@ public class WeaponBehaviour : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log("ATTACKING");
         GameObject bullet = Instantiate(bullet_type_, transform.position, transform.rotation);
         //Todo check what mode from upgrades
 
         var mode = 1;
-        if((playerUpgrades != null && playerUpgrades.upgrades.Contains(5))) mode = 2;
+        if((player_upgrades_.upgrades.Contains(5))) mode = 2;
         switch (mode)
         {
             case 1:

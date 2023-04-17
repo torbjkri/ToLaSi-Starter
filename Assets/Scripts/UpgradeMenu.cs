@@ -4,21 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-
+// TODO: Make the upgrade buttons fixed, instead enable/disable them for the number of upgrades.
 public class UpgradeMenu : MonoBehaviour
 {
-    public GameObject upgradeDB;
     public GameObject upgradeButtonPrefab;
     public Transform upgradeButtonParent;
 
-    private GameManager gameManager;
+    //private GameManager gameManager;
 
-    UpgradeSaveData playerUpgrades;
+    [SerializeField] private UpgradeStorageSO playerUpgrades;
+    [SerializeField] private UpgradeDatabaseSO upgradeDB;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameManager.Instance;
+        //gameManager = GameManager.Instance;
         LoadUpgrades();
     }
 
@@ -30,24 +30,13 @@ public class UpgradeMenu : MonoBehaviour
 
     public void LoadUpgrades(){
         //Finds eligible upgrades and populates the 3 buttons with them
-        Upgrade[] allUpgrades = upgradeDB.GetComponent<UpgradeDatabase>().upgrades;
-        playerUpgrades = SaveSystem.LoadUpgrades();
+        Upgrade[] allUpgrades = upgradeDB.upgrades;
         var eligibleUpgrades = new List<int>();
         // code to get the eligible upgrades
         
         foreach (Upgrade upgrade in allUpgrades)
         {
-            bool eligible = true;
-            // check if the player already has this upgrade or its prerequisites
-            if(playerUpgrades.upgrades.Contains(upgrade.id)){
-                eligible = false;
-            }
-            // check if this upgrade is excluded by any of the player's upgrades
-            // if(playerUpgrades.upgrades.Exists(x=>)){
-            //     eligible = false;
-            // }
-            if (eligible)
-            {
+            if(!playerUpgrades.upgrades.Contains(upgrade.id)){
                 eligibleUpgrades.Add(upgrade.id);
             }
         }
@@ -77,8 +66,7 @@ public class UpgradeMenu : MonoBehaviour
     public void PickUpgrade(int upgradeNo){
         //Add the upgrade to player upgrades
         playerUpgrades.upgrades.Add(upgradeNo);
-        SaveSystem.SaveUpgrades(playerUpgrades.upgrades);
-        gameManager.LoadNextLevel();
+        //gameManager.LoadNextLevel();
 
     }
 }

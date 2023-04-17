@@ -100,10 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f351999b758a45a22c4ddaacfa3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpawner: {fileID: 0}
+  game_manager_: {fileID: 11400000, guid: dcff9ae7dffa4f74d85860769db2a56c, type: 2}
   playerInput: {fileID: 0}
-  maxHealth: 100
-  health: 100
+  healthSO_: {fileID: 11400000, guid: 501b99b71745ebd438341a390b5eeed9, type: 2}
 --- !u!50 &4855102299746052047
 Rigidbody2D:
   serializedVersion: 4

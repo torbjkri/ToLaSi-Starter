@@ -6,17 +6,17 @@ public class Projectile : MonoBehaviour
 {
     //todo calculate from upgrades
     float velocity_force = 20.0f;
-    UpgradeSaveData playerUpgrades;
+
+    // TODO: Should be given the current upgrades by the weapon or something
+    [SerializeField] private UpgradeStorageSO playerUpgrades;
     float damage = 10;
     int bounceCount = 1;
     Rigidbody2D rigidbody2d;
     Vector3 startPosition;
 
-    
 
     private void Start()
     {
-        playerUpgrades = SaveSystem.LoadUpgrades();
         gameObject.layer = 7;
         Physics2D.IgnoreLayerCollision(7, 6);
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -73,7 +73,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private float CalculateDamage(UpgradeSaveData upgrades){
+    private float CalculateDamage(UpgradeStorageSO upgrades){
         //get upgrades of type
         var flatDamageIncrease = 0;
         //Todo this logic is bad and must be improved
