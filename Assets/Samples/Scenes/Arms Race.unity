@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 9013454}
   - component: {fileID: 9013453}
   - component: {fileID: 9013452}
+  - component: {fileID: 9013456}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -227,6 +228,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &9013456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9013450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3251ee109889fc245ab6c00588fca66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game_manager_: {fileID: 11400000, guid: dcff9ae7dffa4f74d85860769db2a56c, type: 2}
+  pause_menu_: {fileID: 1503769658}
+  upgrade_menu_: {fileID: 1684207404}
 --- !u!1 &57248181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,8 +1374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeButtonPrefab: {fileID: 2747177546842905303, guid: 870fea1e52e8b314f8e083d7e1e8c5db, type: 3}
   upgradeButtonParent: {fileID: 1587756493}
-  playerUpgrades: {fileID: 0}
-  upgradeDB: {fileID: 0}
+  playerUpgrades: {fileID: 11400000, guid: 4f0d39efafacc3c44bffe55711b237a2, type: 2}
+  upgradeDB: {fileID: 11400000, guid: 9032b988a3f1e824b9f52bf2d18dae18, type: 2}
 --- !u!114 &1587756495
 MonoBehaviour:
   m_ObjectHideFlags: 0
