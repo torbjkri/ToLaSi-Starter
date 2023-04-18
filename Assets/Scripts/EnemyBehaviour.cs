@@ -75,7 +75,7 @@ public class EnemyBehaviour : MonoBehaviour
             float timeSinceLastAttack = now - lastAttackTimeStamp;
             if (timeSinceLastAttack > attackCooldown)
             {
-                Debug.Log("Enemy hit player");
+                // Debug.Log("Enemy hit player");
                 collision.gameObject.SendMessage("ApplyDamage", damage);
                 lastAttackTimeStamp = now;
             }
@@ -91,7 +91,7 @@ public class EnemyBehaviour : MonoBehaviour
             float timeSinceLastAttack = now - lastAttackTimeStamp;
             if (timeSinceLastAttack > attackCooldown)
             {
-                Debug.Log("Enemy hit player");
+                // Debug.Log("Enemy hit player");
                 collision.gameObject.SendMessage("ApplyDamage", damage);
                 lastAttackTimeStamp = now;
             }

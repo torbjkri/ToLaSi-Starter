@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f23b6270a7a51418112cc8dcd96a01, type: 3}
+  m_Name: UpgradeDatabase
+  m_EditorClassIdentifier: 
+  upgrades:
+  - id: 0
+    name: Damage +1
+    description: Increases damage by one
+    type: passive
+    preRequisites: 
+    excludedUpgrades: 
+  - id: 1
+    name: Damage +2
+    description: Increases damage by one more
+    type: passive
+    preRequisites: 00000000
+    excludedUpgrades: 
+  - id: 2
+    name: Damage +3
+    description: Increases damage by one more
+    type: passive
+    preRequisites: 01000000
+    excludedUpgrades: 
+  - id: 3
+    name: Bounce 1
+    description: Allows projectile to bounce one time before disappearing
+    type: projectile
+    preRequisites: 
+    excludedUpgrades: 
+  - id: 4
+    name: Bounce 2
+    description: Allows projectile to bounce two times before disappearing
+    type: projectile
+    preRequisites: 03000000
+    excludedUpgrades: 
+  - id: 5
+    name: Shotgun
+    description: Fires multiple bullets at once
+    type: firemode
+    preRequisites: 
+    excludedUpgrades: 

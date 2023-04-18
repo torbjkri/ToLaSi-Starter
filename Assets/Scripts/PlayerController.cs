@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
 {
     //[SerializeField] private BulletSO bulletSpawner;
 
+    [SerializeField] private GameManagerSO game_manager_;
     MovementHandler movement_handler;
 
     public PlayerInput playerInput;
@@ -92,13 +93,13 @@ public class PlayerController : MonoBehaviour
 
     public void TogglePause()
     {
-        GameManager.Instance.TogglePause();
+        game_manager_.TogglePause();
         ToggleInputMap();
     }
 
     void ToggleInputMap()
     {
-        if (GameManager.Instance.IsGamePaused())
+        if (game_manager_.IsGamePaused())
             playerInput.SwitchCurrentActionMap("UI");
         else
             playerInput.SwitchCurrentActionMap("Player");
