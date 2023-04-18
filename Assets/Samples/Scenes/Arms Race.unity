@@ -403,8 +403,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: dcff9ae7dffa4f74d85860769db2a56c, type: 2}
+        m_TargetAssemblyTypeName: GameManagerSO, Scripts
         m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
@@ -1374,6 +1374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeButtonPrefab: {fileID: 2747177546842905303, guid: 870fea1e52e8b314f8e083d7e1e8c5db, type: 3}
   upgradeButtonParent: {fileID: 1587756493}
+  game_manager_: {fileID: 11400000, guid: dcff9ae7dffa4f74d85860769db2a56c, type: 2}
   playerUpgrades: {fileID: 11400000, guid: 4f0d39efafacc3c44bffe55711b237a2, type: 2}
   upgradeDB: {fileID: 11400000, guid: 9032b988a3f1e824b9f52bf2d18dae18, type: 2}
 --- !u!114 &1587756495
@@ -1426,7 +1427,6 @@ GameObject:
   - component: {fileID: 1587756496}
   - component: {fileID: 1587756495}
   - component: {fileID: 1587756494}
-  - component: {fileID: 1684207406}
   m_Layer: 5
   m_Name: UpgradeMenu
   m_TagString: Untagged
@@ -1434,18 +1434,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1684207406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1684207404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0f3ed66b5139e541903db558067a2ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1697464390
 GameObject:
   m_ObjectHideFlags: 0
