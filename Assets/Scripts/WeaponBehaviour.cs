@@ -19,8 +19,7 @@ public class WeaponBehaviour : MonoBehaviour
     }
 
     public void Attack()
-    {
-        GameObject bullet = Instantiate(bullet_type_, transform.position, transform.rotation);
+    {        
         //Todo check what mode from upgrades
 
         var mode = 1;
