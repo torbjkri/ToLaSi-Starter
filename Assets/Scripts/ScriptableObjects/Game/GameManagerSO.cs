@@ -18,7 +18,6 @@ public class GameManagerSO : ScriptableObject
     [SerializeField] private LevelManagerSO level_manager_;
 
     public GameStateType GameState {get; private set;}
-    private bool isPaused;
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,7 +29,6 @@ public class GameManagerSO : ScriptableObject
         if(SceneManager.GetSceneByName("MainMenu") == SceneManager.GetActiveScene())
             SceneManager.LoadScene("Arms Race");
         LoadCurrentLevel();
-        isPaused = false;
         GameState = GameStateType.Playing;
     }
 
@@ -46,16 +44,10 @@ public class GameManagerSO : ScriptableObject
      
     public void TogglePause()
     {
-        isPaused = !isPaused;
-        ToggleTimeScale();
-
-        if (isPaused)
-        {
-            GameState = GameStateType.Paused;
-        }
-        else
+        if (IsGamePaused())
         {
             GameState = GameStateType.Playing;
+            ToggleTimeScale();
         }
     }
 
@@ -72,12 +64,12 @@ public class GameManagerSO : ScriptableObject
 
     public bool IsGamePaused()
     {
-        return isPaused;
+        return GameState == GameStateType.Paused;
     }
 
     private void ToggleTimeScale()
     {
-        if (isPaused)
+        if (IsGamePaused())
         {
             Time.timeScale = 0.0f;
         }
