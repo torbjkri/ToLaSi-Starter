@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,6 +27,8 @@ public class GameManagerSO : ScriptableObject
     public void StartGame()
     {
         Debug.Log("Game manager awake");
+        if(SceneManager.GetSceneByName("MainMenu") == SceneManager.GetActiveScene())
+            SceneManager.LoadScene("Arms Race");
         LoadCurrentLevel();
         isPaused = false;
         GameState = GameStateType.Playing;
@@ -54,6 +57,11 @@ public class GameManagerSO : ScriptableObject
         {
             GameState = GameStateType.Playing;
         }
+    }
+
+        public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void FinishUpgrading()

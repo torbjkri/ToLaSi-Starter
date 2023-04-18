@@ -10,7 +10,7 @@ public class UpgradeMenu : MonoBehaviour
     public GameObject upgradeButtonPrefab;
     public Transform upgradeButtonParent;
 
-    //private GameManager gameManager;
+    [SerializeField] private GameManagerSO game_manager_;
 
     [SerializeField] private UpgradeStorageSO playerUpgrades;
     [SerializeField] private UpgradeDatabaseSO upgradeDB;
@@ -64,9 +64,8 @@ public class UpgradeMenu : MonoBehaviour
     }
 
     public void PickUpgrade(int upgradeNo){
-        //Add the upgrade to player upgrades
         playerUpgrades.upgrades.Add(upgradeNo);
-        //gameManager.LoadNextLevel();
+        game_manager_.FinishUpgrading();
 
     }
 }
