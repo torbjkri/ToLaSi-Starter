@@ -1,44 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+class CoroutineRunner : MonoBehaviour
+{
+    public void RunCoroutine(IEnumerator coroutine)
+    {
+        StartCoroutine(coroutine);
+    }
+}
 
 [CreateAssetMenu(menuName = "Game/Level Manager", fileName = "LevelManager")]
 public class LevelManagerSO : ScriptableObject
 {
-    
-    [SerializeField] List<LevelSO> levels = new List<LevelSO>();
 
-    void Awake()
+    [SerializeField] private string sceneName = "Level_1";
+    private string loaded_scene_ = null;
+    private bool is_level_loaded_ = false;
+
+    public void LoadLevel(int next_level)
     {
-        
+        is_level_loaded_ = false;
+        CoroutineRunner coroutineRunner = new GameObject("CoroutineRunner").AddComponent<CoroutineRunner>();
+
+        if (loaded_scene_ != null)
+            SceneManager.UnloadSceneAsync(loaded_scene_);
+        coroutineRunner.RunCoroutine(LoadSceneAsync());
     }
 
-    public int LoadLevel(int next_level)
+    private IEnumerator LoadSceneAsync()
     {
-        if (next_level >= levels.Count)
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+
+        while (!asyncLoad.isDone)
         {
-            next_level = 0;
+            yield return null;
         }
 
-        SpawnLevel(next_level);
-        return next_level;
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+        is_level_loaded_ =  true;
     }
 
-    private void SpawnLevel(int level)
+    private IEnumerator UnLoadSceneAsync()
     {
-        foreach(LocatedSpawner spawner in levels[level].spawners)
+        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(loaded_scene_);
+
+        while (!asyncLoad.isDone)
         {
-            Vector3 position = new Vector3(spawner.position.x, spawner.position.y, 0.0f);
-            Instantiate(spawner.spawner, position, new Quaternion());
+            yield return null;
         }
     }
 
     public bool IsLevelFinished()
     {
-        if(GameObject.FindGameObjectsWithTag("Spawner").Length <= 0){
-            Debug.Log("Victory");
-            return true;
-        }
-        return false;
+        if (!is_level_loaded_)
+            return false;
+
+        return GameObject.FindGameObjectsWithTag("Spawner").Length == 0;
     }
+
 }

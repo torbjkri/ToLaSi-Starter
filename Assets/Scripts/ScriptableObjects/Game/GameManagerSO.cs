@@ -26,8 +26,6 @@ public class GameManagerSO : ScriptableObject
     public void StartGame()
     {
         Debug.Log("Game manager awake");
-        if(SceneManager.GetSceneByName("MainMenu") == SceneManager.GetActiveScene())
-            SceneManager.LoadScene("Arms Race");
         LoadCurrentLevel();
         GameState = GameStateType.Playing;
     }
@@ -37,8 +35,8 @@ public class GameManagerSO : ScriptableObject
         if (level_manager_.IsLevelFinished())
         {
             LoadNextLevel();
-            GameState = GameStateType.Upgrading;
-            ToggleTimeScale();
+            //GameState = GameStateType.Upgrading;
+            //ToggleTimeScale();
         }
     }
      
@@ -81,12 +79,12 @@ public class GameManagerSO : ScriptableObject
 
     private void LoadNextLevel()
     {
-        game_config.current_level = level_manager_.LoadLevel(game_config.current_level + 1);
+        level_manager_.LoadLevel(game_config.current_level + 1);
     }
 
     private void LoadCurrentLevel()
     {
-        game_config.current_level = level_manager_.LoadLevel(game_config.current_level);
+        level_manager_.LoadLevel(game_config.current_level);
     }
 
 }
