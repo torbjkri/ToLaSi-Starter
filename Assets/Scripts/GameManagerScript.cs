@@ -8,6 +8,7 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this);
         game_manager_.StartGame();
     }
 
