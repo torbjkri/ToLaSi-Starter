@@ -27,7 +27,6 @@ class MovementHandler
     {
 
         Vector2 mouse_position = camera_.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        Debug.Log(mouse_position);
         rigid_body_.MovePosition(rigid_body_.position + direction_ * move_speed * Time.fixedDeltaTime);
         Vector2 lookDir = mouse_position - rigid_body_.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
