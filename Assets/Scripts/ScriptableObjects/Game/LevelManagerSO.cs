@@ -16,7 +16,7 @@ public class LevelManagerSO : ScriptableObject
 {
 
     [SerializeField] private string sceneName = "Level_1";
-    private string loaded_scene_ = null;
+    private string loaded_scene_ = "";
     private bool is_level_loaded_ = false;
 
     public void LoadLevel(int next_level)
@@ -24,13 +24,26 @@ public class LevelManagerSO : ScriptableObject
         is_level_loaded_ = false;
         CoroutineRunner coroutineRunner = new GameObject("CoroutineRunner").AddComponent<CoroutineRunner>();
 
-        if (loaded_scene_ != null)
-            SceneManager.UnloadSceneAsync(loaded_scene_);
         coroutineRunner.RunCoroutine(LoadSceneAsync());
     }
 
     private IEnumerator LoadSceneAsync()
     {
+
+        if (loaded_scene_ != "")
+        {
+            Debug.Log(string.Format("Unloading {0}", loaded_scene_));
+            AsyncOperation asyncUnLoad = SceneManager.UnloadSceneAsync(loaded_scene_);
+
+            while (!asyncUnLoad.isDone)
+            {
+                yield return null;
+            }
+
+            loaded_scene_ = null;
+        }
+
+
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 
         while (!asyncLoad.isDone)
@@ -40,16 +53,6 @@ public class LevelManagerSO : ScriptableObject
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
         is_level_loaded_ =  true;
-    }
-
-    private IEnumerator UnLoadSceneAsync()
-    {
-        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(loaded_scene_);
-
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
     }
 
     public bool IsLevelFinished()
