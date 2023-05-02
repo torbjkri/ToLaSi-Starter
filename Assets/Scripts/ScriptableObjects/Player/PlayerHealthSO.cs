@@ -13,4 +13,8 @@ public class PlayerHealthSO : ScriptableObject
         Health = MaxHealth;
     }
 
+    public void ResetHealth(){
+        Health = MaxHealth;
+    }
+
 }

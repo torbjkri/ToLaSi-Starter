@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("Lost");
             PlayerPrefs.SetInt("CurrentDifficulty", 0);
+            healthSO_.ResetHealth();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
