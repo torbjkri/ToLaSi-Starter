@@ -5,7 +5,7 @@ using UnityEngine;
 public class MenuController : MonoBehaviour
 {
 
-    [SerializeField] private GameManagerSO game_manager_;
+    [SerializeField] private GameStateSO game_state_;
 
     [SerializeField] private GameObject pause_menu_;
     [SerializeField] private GameObject upgrade_menu_;
@@ -19,7 +19,7 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(game_manager_.GameState) {
+        switch(game_state_.game_state) {
             case GameStateType.Paused:
                 DisableUpgradeMenu();
                 EnablePauseMenu();
