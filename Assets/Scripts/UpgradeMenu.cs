@@ -10,7 +10,7 @@ public class UpgradeMenu : MonoBehaviour
     public GameObject upgradeButtonPrefab;
     public Transform upgradeButtonParent;
 
-    [SerializeField] private GameManagerSO game_manager_;
+    [SerializeField] private GameStateSO game_manager_;
 
     [SerializeField] private UpgradeStorageSO playerUpgrades;
     [SerializeField] private UpgradeDatabaseSO upgradeDB;

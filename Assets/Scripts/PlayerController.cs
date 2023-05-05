@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 {
     //[SerializeField] private BulletSO bulletSpawner;
 
-    [SerializeField] private GameManagerSO game_manager_;
+    [SerializeField] private GameStateSO game_state_;
     MovementHandler movement_handler;
 
     public PlayerInput playerInput;
@@ -94,13 +94,16 @@ public class PlayerController : MonoBehaviour
 
     public void TogglePause()
     {
-        game_manager_.TogglePause();
+        if (game_state_.game_state == GameStateType.Paused)
+            game_state_.game_state = GameStateType.Playing;
+        else
+            game_state_.game_state = GameStateType.Paused;
         ToggleInputMap();
     }
 
     void ToggleInputMap()
     {
-        if (game_manager_.IsGamePaused())
+        if (game_state_.game_state == GameStateType.Paused)
             playerInput.SwitchCurrentActionMap("UI");
         else
             playerInput.SwitchCurrentActionMap("Player");
