@@ -8,28 +8,18 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     [SerializeField] private GameStateSO game_state_;
-    [SerializeField] private LevelManagerSO level_manager_;
 
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(this);
-
-        Debug.Log("Game manager awake");
-        LoadCurrentLevel();
-
-        game_state_.game_state = GameStateType.Playing;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (level_manager_.IsLevelFinished())
-        {
-            LoadNextLevel();
-            //GameState = GameStateType.Upgrading;
-            //ToggleTimeScale();
-        }
+        if (game_state_.game_state == GameStateType.Loading)
+            return;
 
         if (IsGamePaused())
             TurnOffTime();
@@ -61,17 +51,6 @@ public class GameManagerScript : MonoBehaviour
     private void TurnOnTime()
     {
         Time.timeScale = 1.0f;
-    }
-
-
-    private void LoadNextLevel()
-    {
-        level_manager_.LoadLevel(game_state_.current_level + 1);
-    }
-
-    private void LoadCurrentLevel()
-    {
-        level_manager_.LoadLevel(game_state_.current_level);
     }
 
 }
