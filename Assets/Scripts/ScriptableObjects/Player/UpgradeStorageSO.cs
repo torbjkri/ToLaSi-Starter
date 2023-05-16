@@ -13,6 +13,10 @@ public class UpgradeStorageSO : ScriptableObject
         upgrades = new List<int>();
     }
 
+    public void ClearUpgrades(){
+        upgradeSOs.Clear();
+    }
+
     public List<DamageUpgradeSO> GetDamageUpgrades(){
             List<DamageUpgradeSO> damagepUpgrades = new List<DamageUpgradeSO>(); 
         foreach (UpgradeSO item in upgradeSOs)

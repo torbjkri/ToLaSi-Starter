@@ -1375,7 +1375,7 @@ MonoBehaviour:
   upgradeButtonPrefab: {fileID: 2747177546842905303, guid: 870fea1e52e8b314f8e083d7e1e8c5db, type: 3}
   upgradeButtonParent: {fileID: 1587756493}
   game_manager_: {fileID: 11400000, guid: dcff9ae7dffa4f74d85860769db2a56c, type: 2}
-  playerUpgrades: {fileID: 11400000, guid: 4f0d39efafacc3c44bffe55711b237a2, type: 2}
+  playerUpgrades: {fileID: 11400000, guid: b9cfe430fc9a66b408cd04c0801b09a9, type: 2}
   upgradeDB: {fileID: 11400000, guid: 9032b988a3f1e824b9f52bf2d18dae18, type: 2}
 --- !u!114 &1587756495
 MonoBehaviour:
