@@ -10,6 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52c364ea9d67d5d4ab54ee07bb98eae1, type: 3}
-  m_Name: UpgradeStorageSO
+  m_Name: UpgradeStorage
   m_EditorClassIdentifier: 
-  upgrades: 05000000
+  upgrades: 
+  upgradeSOs:
+  - {fileID: 11400000, guid: f858d2905e917e9429d0f2fee74e8797, type: 2}
+  - {fileID: 11400000, guid: 673a8e0d1ef890a4280a5aaf3b72f448, type: 2}

@@ -23,14 +23,15 @@ public class WeaponBehaviour : MonoBehaviour
         //Todo check what mode from upgrades
 
         var mode = 1;
-        if((player_upgrades_.upgrades.Contains(5))) mode = 2;
+        if((player_upgrades_ != null && player_upgrades_.upgrades != null && 
+            player_upgrades_.upgrades.Contains(5))) mode = 2;
         switch (mode)
         {
             case 1:
                 Normal();
                 break;
             case 2:
-                Shotgun();                
+                Shotgun();
                 break;
         }
         
@@ -40,11 +41,13 @@ public class WeaponBehaviour : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             GameObject bullet = Instantiate(bullet_type_, transform.position, transform.rotation);
+            bullet.GetComponent<Projectile>().playerUpgrades = player_upgrades_;
         }        
     }
 
     void Normal(){
         GameObject bullet = Instantiate(bullet_type_, transform.position, transform.rotation);
+        bullet.GetComponent<Projectile>().playerUpgrades = player_upgrades_;
     
     }
 }
