@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c364ea9d67d5d4ab54ee07bb98eae1, type: 3}
-  m_Name: UpgradeStorageSO
+  m_Script: {fileID: 11500000, guid: 478c4cff22f012442ad8c3c61a44d724, type: 3}
+  m_Name: TenPercentDamage 1
   m_EditorClassIdentifier: 
-  upgrades: 05000000
+  id: 0
+  upgradeName: Damage 10%
+  description: Adds 10% damage
+  preRequisites: []
+  excludedUpgrades: 
+  additiveMultiplier: 0.1

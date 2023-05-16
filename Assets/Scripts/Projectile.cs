@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     float velocity_force = 20.0f;
 
     // TODO: Should be given the current upgrades by the weapon or something
-    [SerializeField] private UpgradeStorageSO playerUpgrades;
+    [SerializeField] public UpgradeStorageSO playerUpgrades;
     float damage = 10;
     int bounceCount = 1;
     Rigidbody2D rigidbody2d;
@@ -50,41 +50,34 @@ public class Projectile : MonoBehaviour
         {
             // Debug.Log("Bullet hit enemy");
             //todo get damage from upgrades
-            float damageUpgrades = 1.1f;
-            float damageAfterUpgrades = damage * damageUpgrades;
-            collision.gameObject.SendMessage("ApplyDamage", damageAfterUpgrades);
+            collision.gameObject.SendMessage("ApplyDamage", damage);
             //todo get bounce from upgrade
-            var bulletMod = "bounce";
-            switch (bulletMod)
+            if (playerUpgrades.GetBulletUpgrades().Find(x=>x.bulletType == "Bounce"))
             {
-                case "bounce":
-                    var maxBounce = 2;
-                    if(bounceCount >= maxBounce){
-                        Destroy(gameObject);
-                    }else{
-                        bounceCount++;
-                    }
-                    break;
-                default:
+                var maxBounce = 0;
+                foreach (var item in playerUpgrades.GetBulletUpgrades())
+                {
+                    if(item.bulletType == "Bounce")
+                    maxBounce += item.impact;
+                }
+                if(bounceCount >= maxBounce){
                     Destroy(gameObject);
-                    break;
-            }
+                }else{
+                    bounceCount++;
+                }
+            }else{
+                Destroy(gameObject);
+            }         
             
         }
     }
 
     private float CalculateDamage(UpgradeStorageSO upgrades){
-        //get upgrades of type
-        var flatDamageIncrease = 0;
-        //Todo this logic is bad and must be improved
-        if((playerUpgrades != null && playerUpgrades.upgrades.Contains(2)))
-            flatDamageIncrease = 3;
-        else if((playerUpgrades != null && playerUpgrades.upgrades.Contains(1)))
-        flatDamageIncrease = 2;
-                else if((playerUpgrades != null && playerUpgrades.upgrades.Contains(0)))
-        flatDamageIncrease = 1;
-
-        return damage + flatDamageIncrease;
+        float additiveMultiplier = 1;
+        foreach(DamageUpgradeSO damageupgrade in playerUpgrades.GetDamageUpgrades()){
+            additiveMultiplier += damageupgrade.additiveMultiplier;
+        }
+        return damage * additiveMultiplier;
     }
 
 }

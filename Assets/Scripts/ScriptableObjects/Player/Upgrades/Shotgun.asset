@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a046fb4976813ce4aa6f3248f0e67263, type: 3}
+  m_Name: Shotgun
+  m_EditorClassIdentifier: 
+  id: 2
+  upgradeName: Shotgun
+  description: Adds 2 more bullets to each shot
+  type: WeaponType
+  preRequisites: []
+  excludedUpgrades: 
+  weaponType: Shotgun
+  impact: 3
