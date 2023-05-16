@@ -52,21 +52,22 @@ public class Projectile : MonoBehaviour
             //todo get damage from upgrades
             collision.gameObject.SendMessage("ApplyDamage", damage);
             //todo get bounce from upgrade
-            var bulletMod = "bounce";
-            switch (bulletMod)
+            if (playerUpgrades.GetBulletUpgrades().Find(x=>x.bulletType == "Bounce"))
             {
-                case "bounce":
-                    var maxBounce = 2;
-                    if(bounceCount >= maxBounce){
-                        Destroy(gameObject);
-                    }else{
-                        bounceCount++;
-                    }
-                    break;
-                default:
+                var maxBounce = 0;
+                foreach (var item in playerUpgrades.GetBulletUpgrades())
+                {
+                    if(item.bulletType == "Bounce")
+                    maxBounce += item.impact;
+                }
+                if(bounceCount >= maxBounce){
                     Destroy(gameObject);
-                    break;
-            }
+                }else{
+                    bounceCount++;
+                }
+            }else{
+                Destroy(gameObject);
+            }         
             
         }
     }

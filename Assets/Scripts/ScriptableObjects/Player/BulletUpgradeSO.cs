@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Player/WeaponTypeUpgrade")]
-public class WeaponTypeUpgradeSO : UpgradeSO
+[CreateAssetMenu(menuName = "Player/BulletUpgrade")]
+public class BulletUpgradeSO : UpgradeSO
 {
-    [SerializeField]public string weaponType;
+    [SerializeField]public string bulletType;
 
     [SerializeField]public int impact;
+
     //passive stat bonus, projectile spawn modifier, fire rate, projectile behaviour,
 
 }

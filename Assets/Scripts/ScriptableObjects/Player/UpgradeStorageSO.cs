@@ -17,10 +17,32 @@ public class UpgradeStorageSO : ScriptableObject
             List<DamageUpgradeSO> damagepUpgrades = new List<DamageUpgradeSO>(); 
         foreach (UpgradeSO item in upgradeSOs)
         {
-        if(item.GetType() == typeof(DamageUpgradeSO))   {
-            damagepUpgrades.Add(item as DamageUpgradeSO);
-        }
+            if(item.GetType() == typeof(DamageUpgradeSO))   {
+                damagepUpgrades.Add(item as DamageUpgradeSO);
+            }
         }
         return damagepUpgrades;        
+    }
+
+    public List<WeaponTypeUpgradeSO> GetWeaponTypeUpgrades(){
+        List<WeaponTypeUpgradeSO> weaponTypeUpgrades = new List<WeaponTypeUpgradeSO>(); 
+        foreach (UpgradeSO item in upgradeSOs)
+        {
+            if(item.GetType() == typeof(WeaponTypeUpgradeSO))   {
+                weaponTypeUpgrades.Add(item as WeaponTypeUpgradeSO);
+            }
+        }
+        return weaponTypeUpgrades; 
+    }  
+
+    public List<BulletUpgradeSO> GetBulletUpgrades(){
+        List<BulletUpgradeSO> bulletUpgrades = new List<BulletUpgradeSO>(); 
+    foreach (UpgradeSO item in upgradeSOs)
+    {
+        if(item.GetType() == typeof(BulletUpgradeSO))   {
+            bulletUpgrades.Add(item as BulletUpgradeSO);
+        }
+    }
+    return bulletUpgrades;     
     }
 }

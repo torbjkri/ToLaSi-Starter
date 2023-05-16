@@ -553,7 +553,7 @@ PrefabInstance:
     - target: {fileID: 5505985064299214812, guid: c95520d6db81cf844a1409f95f425a85, type: 3}
       propertyPath: player_upgrades_
       value: 
-      objectReference: {fileID: 11400000, guid: 4f0d39efafacc3c44bffe55711b237a2, type: 2}
+      objectReference: {fileID: 11400000, guid: b9cfe430fc9a66b408cd04c0801b09a9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c95520d6db81cf844a1409f95f425a85, type: 3}
 --- !u!1 &549164389
