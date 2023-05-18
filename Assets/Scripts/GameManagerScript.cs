@@ -8,10 +8,12 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     [SerializeField] private GameStateSO game_state_;
+    [SerializeField] private UpgradeStorageSO player_upgrades_;
 
     // Start is called before the first frame update
     void Start()
     {
+        player_upgrades_.ClearUpgrades();
         game_state_.Initialize();
         game_state_.OnGameStateUpdated += OnGameStateChanged;
         DontDestroyOnLoad(this);

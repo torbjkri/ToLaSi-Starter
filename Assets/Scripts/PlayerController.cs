@@ -96,6 +96,8 @@ public class PlayerController : MonoBehaviour
     {
         if (state == GameStateType.Paused || state == GameStateType.Upgrading)
             playerInput.SwitchCurrentActionMap("UI");
+        else if (state == GameStateType.FinishedLevel)
+            game_state_.OnGameStateUpdated -= OnGameStateChanged;
         else
             playerInput.SwitchCurrentActionMap("Player");
     }
