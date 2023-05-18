@@ -12,7 +12,7 @@ public class HealthBarBehaviour : MonoBehaviour
     private HealthBarController controller;
     private TextMeshProUGUI text_;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         controller = new HealthBarController(gameObject.GetComponent<Slider>());
         controller.SetMaxHealth(health_.MaxHealth);

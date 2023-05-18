@@ -12,8 +12,10 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        game_state_.Initialize();
         game_state_.OnGameStateUpdated += OnGameStateChanged;
         DontDestroyOnLoad(this);
+        game_state_.game_state = GameStateType.Playing;
     }
 
     // Update is called once per frame
@@ -33,12 +35,6 @@ public class GameManagerScript : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
-    }
-
-    public void FinishUpgrading()
-    {
-        game_state_.game_state = GameStateType.Playing;
-        TurnOnTime();
     }
 
     private void TurnOffTime()

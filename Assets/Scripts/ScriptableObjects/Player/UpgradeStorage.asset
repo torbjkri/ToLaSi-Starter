@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c364ea9d67d5d4ab54ee07bb98eae1, type: 3}
   m_Name: UpgradeStorage
   m_EditorClassIdentifier: 
-  upgrades: 
-  upgradeSOs:
-  - {fileID: 11400000, guid: e1473fb6427afd94bb7e87f32047df9a, type: 2}
-  - {fileID: 11400000, guid: 3eb21ebecd0fd9c49ad108b56c2cad34, type: 2}
-  - {fileID: 11400000, guid: dcae45b8688701848bb670ef92c13a3e, type: 2}
+  upgradeSOs: []

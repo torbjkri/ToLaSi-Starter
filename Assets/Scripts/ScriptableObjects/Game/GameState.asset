@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - Level_0
-  - Level_1
+  - Level_0
   current_level: 0
-  game_state: 0
