@@ -12,22 +12,25 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        game_state_.OnGameStateUpdated += OnGameStateChanged;
         DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (game_state_.game_state == GameStateType.Loading)
-            return;
+    }
 
-        if (IsGamePaused())
+    void OnGameStateChanged(GameStateType state)
+    {
+        if (state == GameStateType.Paused || state == GameStateType.Upgrading)
             TurnOffTime();
-
+        else
+            TurnOnTime();
     }
 
 
-        public void LoadMainMenu()
+    public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
@@ -36,11 +39,6 @@ public class GameManagerScript : MonoBehaviour
     {
         game_state_.game_state = GameStateType.Playing;
         TurnOnTime();
-    }
-
-    public bool IsGamePaused()
-    {
-        return game_state_.game_state == GameStateType.Paused;
     }
 
     private void TurnOffTime()

@@ -14,7 +14,34 @@ public class GameStateSO : ScriptableObject
 {
     [SerializeField] List<string> levels = new List<string>();
     [SerializeField] private int current_level = 0;
-    [SerializeField] public GameStateType game_state  = GameStateType.Paused;
+
+    public delegate void OnGameStateUpdatedDelegate(GameStateType state);
+    public OnGameStateUpdatedDelegate OnGameStateUpdated;
+
+    private GameStateType previous_state_ = GameStateType.Playing;
+    private GameStateType game_state_;
+    public GameStateType game_state {
+        get {return game_state_;}
+        set {
+            previous_state_ = game_state_;
+            game_state_ = value;
+            if (OnGameStateUpdated != null)
+                OnGameStateUpdated(game_state_);
+        }
+    }
+
+    void Awake()
+    {
+        game_state = GameStateType.Playing;
+    }
+
+    public void TogglePause()
+    {
+        if (game_state == GameStateType.Paused)
+            game_state = previous_state_;
+        else
+            game_state = GameStateType.Paused;
+    }
 
     public string CurrentLevel()
     {
