@@ -7,6 +7,8 @@ public enum GameStateType {
     Paused,
     Upgrading,
     Loading,
+    Won,
+    FinishedLevel
 };
 
 [CreateAssetMenu(menuName = "Player/State")]
@@ -30,9 +32,14 @@ public class GameStateSO : ScriptableObject
         }
     }
 
-    void Awake()
+    public void Initialize()
     {
-        game_state = GameStateType.Playing;
+        OnGameStateUpdated += OnGameStateChanged;
+    }
+
+    void OnGameStateChanged(GameStateType state)
+    {
+        Debug.Log(state.ToString());
     }
 
     public void TogglePause()
