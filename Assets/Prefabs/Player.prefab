@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f351999b758a45a22c4ddaacfa3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game_manager_: {fileID: 11400000, guid: dcff9ae7dffa4f74d85860769db2a56c, type: 2}
+  game_state_: {fileID: 11400000, guid: de65cf9abdbaa7c4faadaa14738ee3c9, type: 2}
   playerInput: {fileID: -3731079697853901980}
   healthSO_: {fileID: 11400000, guid: 501b99b71745ebd438341a390b5eeed9, type: 2}
 --- !u!50 &4855102299746052047
@@ -167,7 +167,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -245,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 5505985064299214812, guid: c95520d6db81cf844a1409f95f425a85, type: 3}
       propertyPath: player_upgrades_
       value: 
-      objectReference: {fileID: 11400000, guid: 4f0d39efafacc3c44bffe55711b237a2, type: 2}
+      objectReference: {fileID: 11400000, guid: b9cfe430fc9a66b408cd04c0801b09a9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c95520d6db81cf844a1409f95f425a85, type: 3}
 --- !u!4 &1815125298501983858 stripped

@@ -75,7 +75,7 @@ public class UpgradeMenu : MonoBehaviour
             Destroy(buttons[i]);
         }
         LoadUpgrades();
-        game_manager_.FinishUpgrading();
+        //game_manager_.FinishUpgrading();
 
     }
 }
