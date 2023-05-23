@@ -43,10 +43,15 @@ public class WeaponBehaviour : MonoBehaviour
             if(item.weaponType == "Shotgun")
                 bulletCount += item.impact;
         }
-        ;
+        
+        float angle_step = 60.0f / (bulletCount + 1);
         for (int i = 0; i < bulletCount; i++)
         {
-            GameObject bullet = Instantiate(bullet_type_, transform.position, transform.rotation);
+            var current_quaternion = transform.rotation;
+            var euler = current_quaternion.eulerAngles;
+            euler.z += (i + 1) * angle_step - 30.0f;
+            current_quaternion.eulerAngles = euler;
+            GameObject bullet = Instantiate(bullet_type_, transform.position, current_quaternion);
             bullet.GetComponent<Projectile>().playerUpgrades = player_upgrades_;
         }        
     }

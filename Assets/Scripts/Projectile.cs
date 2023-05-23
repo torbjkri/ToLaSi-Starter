@@ -19,6 +19,7 @@ public class Projectile : MonoBehaviour
     {
         gameObject.layer = 7;
         Physics2D.IgnoreLayerCollision(7, 6);
+        Physics2D.IgnoreLayerCollision(7, 7);
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.AddForce(transform.up * velocity_force, ForceMode2D.Impulse);
         damage = CalculateDamage(playerUpgrades);
