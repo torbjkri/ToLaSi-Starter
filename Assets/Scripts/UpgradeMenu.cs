@@ -2,70 +2,104 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using System;
+using TMPro;
 
 
 // TODO: Make the upgrade buttons fixed, instead enable/disable them for the number of upgrades.
 public class UpgradeMenu : MonoBehaviour
 {
-    public GameObject upgradeButtonPrefab;
-    public Transform upgradeButtonParent;
+    class ButtonData {
 
-    [SerializeField] private GameManagerSO game_manager_;
+        public ButtonData(GameObject game_object_)
+        {
+            game_object = game_object_;
+            text = game_object.GetComponentInChildren<TextMeshProUGUI>();
+            OnClicked = null;
+            game_object.GetComponent<Button>().onClick.AddListener(Reaction);
+            game_object.SetActive(false);
+        }
+        public GameObject game_object;
+        public TextMeshProUGUI text;
+        void Reaction()
+        {
+            if (OnClicked != null)
+                OnClicked();
+        }
 
-    [SerializeField] private UpgradeStorageSO playerUpgrades;
-    [SerializeField] private UpgradeDatabaseSO upgradeDB;
+        public delegate void OnClickedDelegate();
+        public OnClickedDelegate OnClicked;
+    }
+    [SerializeField] private GameStateSO game_state;
+
+    [SerializeField] private UpgradeStorageSO player_upgrades;
+    [SerializeField] private UpgradeDatabaseSO upgrade_db;
+
+    [SerializeField] private List<ButtonData> upgrade_buttons = new List<ButtonData>();
+
+    private System.Random random;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        //gameManager = GameManager.Instance;
+        var buttons = GetComponentsInChildren<Button>();
+        foreach (var button in buttons) {
+            upgrade_buttons.Add(new ButtonData(button.gameObject));
+        }
+
+        random = new System.Random();
+    }
+
+    void OnEnable()
+    {
         LoadUpgrades();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        
+        foreach (var button in upgrade_buttons) {
+            button.game_object.SetActive(false);
+        }
     }
 
-    public void LoadUpgrades(){
+    public void LoadUpgrades()
+    {
+        var choices = GetChoices();
+        if (choices.Count() == 0)
+            SkipUpgrading();
+
+        for (int i = 0; i < choices.Count(); i++) {
+            upgrade_buttons[i].game_object.SetActive(true);
+            upgrade_buttons[i].text.text = choices[i].upgradeName;
+            var upgrade = choices[i];
+            upgrade_buttons[i].OnClicked = () => {FinishUpgrading(upgrade);};
+
+        }
+    }
+
+    List<UpgradeSO> GetChoices()
+    {
         //Finds eligible upgrades and populates the 3 buttons with them
-        Upgrade[] allUpgrades = upgradeDB.upgrades;
-        var eligibleUpgrades = new List<int>();
+        var eligibleUpgrades = new List<UpgradeSO>();
         // code to get the eligible upgrades
         
-        foreach (Upgrade upgrade in allUpgrades)
+        foreach (UpgradeSO upgrade in upgrade_db.upgrades)
         {
-            if(!playerUpgrades.upgrades.Contains(upgrade.id)){
-                eligibleUpgrades.Add(upgrade.id);
-            }
+            if(!player_upgrades.upgradeSOs.Contains(upgrade))
+                eligibleUpgrades.Add(upgrade);
         }
-        // shuffle the eligible upgrades
-        // code to instantiate the upgrade buttons
-        float xPosition = 200;
-        float xSpacing = 200;
-
-        for (int i = 0; i < Mathf.Min(3, eligibleUpgrades.Count); i++)
-        {
-            GameObject button = Instantiate(upgradeButtonPrefab, upgradeButtonParent);
-            RectTransform rectTransform = button.GetComponent<RectTransform>();
-            rectTransform.localPosition = new Vector3(xPosition,0, 0);
-            xPosition -= xSpacing;
-            int upgradeIndex = Random.Range(0, eligibleUpgrades.Count);
-            int upgradeId = eligibleUpgrades[upgradeIndex];
-            Upgrade upgrade = allUpgrades[upgradeId];
-            button.GetComponentInChildren<Text>().text = upgrade.name;            
-            eligibleUpgrades.Remove(upgradeIndex);
-            
-            // add a click listener to the button
-            int index = i;
-            button.GetComponent<Button>().onClick.AddListener(() => PickUpgrade(upgradeId));
-        }
+        return eligibleUpgrades.Distinct().OrderBy(x => random.Next()).Take(upgrade_buttons.Count).ToList();
     }
 
-    public void PickUpgrade(int upgradeNo){
-        playerUpgrades.upgrades.Add(upgradeNo);
-        game_manager_.FinishUpgrading();
+    void FinishUpgrading(UpgradeSO upgrade)
+    {
+        player_upgrades.upgradeSOs.Add(upgrade);
+        game_state.game_state = GameStateType.FinishedLevel;
+    }
 
+    void SkipUpgrading()
+    {
+        game_state.game_state = GameStateType.FinishedLevel;
     }
 }

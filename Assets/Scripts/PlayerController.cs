@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 {
     //[SerializeField] private BulletSO bulletSpawner;
 
-    [SerializeField] private GameManagerSO game_manager_;
+    [SerializeField] private GameStateSO game_state_;
     MovementHandler movement_handler;
 
     public PlayerInput playerInput;
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         movement_handler = new MovementHandler(GetComponent<Rigidbody2D>());
         gameObject.layer = 6;
         weapon = transform.Find("Weapon").GetComponent<WeaponBehaviour>();
-
+        game_state_.OnGameStateUpdated += OnGameStateChanged;
     }
 
     // Update is called once per frame
@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("Lost");
             PlayerPrefs.SetInt("CurrentDifficulty", 0);
+            healthSO_.ResetHealth();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
@@ -88,21 +89,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnPause()
     {
-        TogglePause();
+        game_state_.TogglePause();
     }
 
-    public void TogglePause()
+    void OnGameStateChanged(GameStateType state)
     {
-        game_manager_.TogglePause();
-        ToggleInputMap();
-    }
-
-    void ToggleInputMap()
-    {
-        if (game_manager_.IsGamePaused())
+        if (state == GameStateType.Paused || state == GameStateType.Upgrading)
             playerInput.SwitchCurrentActionMap("UI");
+        else if (state == GameStateType.FinishedLevel)
+            game_state_.OnGameStateUpdated -= OnGameStateChanged;
         else
             playerInput.SwitchCurrentActionMap("Player");
     }
-
 }
