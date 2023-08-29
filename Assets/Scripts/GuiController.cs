@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GuiController : MonoBehaviour
 {
@@ -52,5 +53,11 @@ public class GuiController : MonoBehaviour
     {
         upgade_menu.SetActive(true);
         pause_menu.SetActive(false);
+    }
+
+    public void LoadMainMenu(){
+        SceneManager.LoadSceneAsync("MainMenu");
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        
     }
 }

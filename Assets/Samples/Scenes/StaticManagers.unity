@@ -274,6 +274,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2967758562431315268, guid: 22c052f4b9a502b43a21859a35ad923a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1861046094}
+    - target: {fileID: 2967758562431315268, guid: 22c052f4b9a502b43a21859a35ad923a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967758562431315268, guid: 22c052f4b9a502b43a21859a35ad923a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GuiController, Scripts
+      objectReference: {fileID: 0}
     - target: {fileID: 5071454092362708711, guid: 22c052f4b9a502b43a21859a35ad923a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -483,6 +495,10 @@ PrefabInstance:
       propertyPath: level_manager_
       value: 
       objectReference: {fileID: 11400000, guid: c350c4d8f7ede534c8cca78e0216a0a1, type: 2}
+    - target: {fileID: 711089169323981198, guid: c8e35112658d88d438f882d991129e77, type: 3}
+      propertyPath: player_upgrades_
+      value: 
+      objectReference: {fileID: 11400000, guid: b9cfe430fc9a66b408cd04c0801b09a9, type: 2}
     - target: {fileID: 711089169323981199, guid: c8e35112658d88d438f882d991129e77, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -712,6 +728,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1201334887682053709, guid: 22c052f4b9a502b43a21859a35ad923a, type: 3}
   m_PrefabInstance: {fileID: 199100923}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1861046094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9192436520130684472, guid: 22c052f4b9a502b43a21859a35ad923a, type: 3}
+  m_PrefabInstance: {fileID: 199100923}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e894584dc63e64941baa32c9902c0b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1887992483
 PrefabInstance:
   m_ObjectHideFlags: 0
