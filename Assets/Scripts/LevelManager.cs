@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
     }
 
     [SerializeField] private GameStateSO game_state_;
+
+    [SerializeField] private UpgradeStorageSO player_upgrades_;
     private LevelState level_state;
 
     void Start()
@@ -40,7 +42,8 @@ public class LevelManager : MonoBehaviour
         if (level_state == LevelState.Loading)
             return;
 
-        if (state == GameStateType.NewGame) {
+        if (state == GameStateType.NewGame) {            
+            player_upgrades_.ClearUpgrades();
             level_state = LevelState.Loading;
             StartCoroutine(LoadScene(game_state_.FirstLevel()));
         }
