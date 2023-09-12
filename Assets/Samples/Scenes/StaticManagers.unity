@@ -825,6 +825,10 @@ PrefabInstance:
       propertyPath: game_state_
       value: 
       objectReference: {fileID: 11400000, guid: de65cf9abdbaa7c4faadaa14738ee3c9, type: 2}
+    - target: {fileID: 681534571020894920, guid: 9830185c261a92f46ab19336c5f75a6b, type: 3}
+      propertyPath: player_upgrades_
+      value: 
+      objectReference: {fileID: 11400000, guid: b9cfe430fc9a66b408cd04c0801b09a9, type: 2}
     - target: {fileID: 5617730517589717789, guid: 9830185c261a92f46ab19336c5f75a6b, type: 3}
       propertyPath: m_Name
       value: LevelManager
