@@ -8,8 +8,10 @@ public class GuiController : MonoBehaviour
 
     [SerializeField] private GameStateSO game_state;
 
+    [SerializeField] private GameObject main_menu;
     [SerializeField] private GameObject pause_menu;
     [SerializeField] private GameObject upgade_menu;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,8 @@ public class GuiController : MonoBehaviour
             EnableUpgrading();
         else if (state == GameStateType.Playing)
             EnablePlaying();
+        else if (state == GameStateType.MainMenu)
+            LoadMainMenu();
     }
 
     public void ResumeGame()
@@ -37,10 +41,24 @@ public class GuiController : MonoBehaviour
         game_state.game_state = GameStateType.Playing;
     }
 
+        public void NewGame()
+    {
+        game_state.game_state = GameStateType.NewGame;
+    }
+
+    public void MainMenu(){
+        game_state.game_state = GameStateType.MainMenu;
+    }
+
+    public void QuitGame(){
+        Application.Quit();
+    }
+
     void EnablePlaying()
     {
         upgade_menu.SetActive(false);
         pause_menu.SetActive(false);
+        main_menu.SetActive(false);
     }
 
     void EnablePause()
@@ -55,9 +73,10 @@ public class GuiController : MonoBehaviour
         pause_menu.SetActive(false);
     }
 
-    public void LoadMainMenu(){
-        SceneManager.LoadSceneAsync("MainMenu");
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-        
-    }
+    void LoadMainMenu(){
+        pause_menu.SetActive(false);
+        upgade_menu.SetActive(false);
+        main_menu.SetActive(true);
+    }        
+    
 }

@@ -94,9 +94,9 @@ public class PlayerController : MonoBehaviour
 
     void OnGameStateChanged(GameStateType state)
     {
-        if (state == GameStateType.Paused || state == GameStateType.Upgrading)
+        if (state == GameStateType.Paused || state == GameStateType.Upgrading || state == GameStateType.MainMenu)
             playerInput.SwitchCurrentActionMap("UI");
-        else if (state == GameStateType.FinishedLevel)
+        else if (state == GameStateType.FinishedLevel || state == GameStateType.NewGame)
             game_state_.OnGameStateUpdated -= OnGameStateChanged;
         else
             playerInput.SwitchCurrentActionMap("Player");

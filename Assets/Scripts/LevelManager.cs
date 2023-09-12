@@ -40,10 +40,16 @@ public class LevelManager : MonoBehaviour
         if (level_state == LevelState.Loading)
             return;
 
+        if (state == GameStateType.NewGame) {
+            level_state = LevelState.Loading;
+            StartCoroutine(LoadScene(game_state_.FirstLevel()));
+        }
+
         if (state == GameStateType.FinishedLevel) {
             level_state = LevelState.Loading;
             StartCoroutine(LoadScene(game_state_.AdvanceLevel()));
         }
+
     }
 
     private IEnumerator LoadScene(string scene)
@@ -56,6 +62,7 @@ public class LevelManager : MonoBehaviour
         level_state = LevelState.Active;
         game_state_.game_state = GameStateType.Playing;
     }
+
 
     private bool IsLevelFinished()
     {

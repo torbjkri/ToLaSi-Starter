@@ -17,7 +17,7 @@ public class GameManagerScript : MonoBehaviour
         game_state_.Initialize();
         game_state_.OnGameStateUpdated += OnGameStateChanged;
         DontDestroyOnLoad(this);
-        game_state_.game_state = GameStateType.Playing;
+        game_state_.game_state = GameStateType.MainMenu;
     }
 
     // Update is called once per frame
@@ -27,16 +27,10 @@ public class GameManagerScript : MonoBehaviour
 
     void OnGameStateChanged(GameStateType state)
     {
-        if (state == GameStateType.Paused || state == GameStateType.Upgrading)
+        if (state == GameStateType.Paused || state == GameStateType.Upgrading || state == GameStateType.MainMenu)
             TurnOffTime();
         else
             TurnOnTime();
-    }
-
-
-    public void LoadMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 
     private void TurnOffTime()

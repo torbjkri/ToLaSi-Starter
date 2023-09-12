@@ -8,7 +8,9 @@ public enum GameStateType {
     Upgrading,
     Loading,
     Won,
-    FinishedLevel
+    FinishedLevel,
+    MainMenu,
+    NewGame
 };
 
 [CreateAssetMenu(menuName = "Player/State")]
@@ -50,6 +52,9 @@ public class GameStateSO : ScriptableObject
             game_state = GameStateType.Paused;
     }
 
+    public string FirstLevel(){
+        return levels[0];
+    }
     public string CurrentLevel()
     {
         return levels[current_level];
